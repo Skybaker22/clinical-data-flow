@@ -12,7 +12,7 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              Agentic discovery workspace for hospital research teams.
+              Infrastructure for secure healthcare data collaboration
             </p>
           </div>
 
