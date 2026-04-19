@@ -11,23 +11,6 @@
 export function AgentMock() {
   return (
     <div className="rounded-md border hairline bg-background/80 p-4 text-[11px] font-sans select-none shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)]">
-      {/* Mini app header */}
-      <div className="flex items-center justify-between mb-4 pb-3 border-b hairline">
-        <div className="flex items-center gap-2">
-          <span
-            className="inline-flex w-4 h-4 rounded-full items-center justify-center text-[9px] font-bold"
-            style={{
-              background: "color-mix(in oklab, var(--color-brand) 25%, transparent)",
-              color: "var(--color-brand)",
-            }}
-          >
-            ⊕
-          </span>
-          <span className="text-foreground font-medium">Command Center</span>
-        </div>
-        <span className="text-muted-foreground font-mono text-[10px]">4 sources</span>
-      </div>
-
       {/* Centered prompt area */}
       <div className="text-center mb-3">
         <div
