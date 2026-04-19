@@ -45,14 +45,14 @@ function Home() {
           {/* Digital patient hologram — decorative background */}
           <PatientHologram />
           <div className="max-w-3xl relative">
-            <p className="label-eyebrow mb-5">Building the future of secure health data collaboration</p>
             <h1 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
               Search for clinical evidence.<br />
               <span className="text-muted-foreground">Let the agent do the discovery.</span>
             </h1>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DataX is a founder-led research company working on the frontier of
-              healthcare AI — building agentic systems for secure clinical data discovery.
+              DataX is a founder-led research company building the future of secure
+              health data collaboration — agentic systems for clinical discovery,
+              built with hospitals.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-6">
               <a
