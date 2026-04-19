@@ -74,21 +74,21 @@ function Home() {
             <Card
               eyebrow="01 — Discovery Agent"
               title="Plain-language clinical questions, structured into discovery runs."
-              body="Natural-language intake. The agent turns intent into deterministic criteria, scans connected sources, and verifies governance — every step traceable."
+              body="Intent into deterministic criteria — every step traceable."
               tone="brand"
               visual={<AgentMock />}
             />
             <Card
               eyebrow="02 — Discovery Workspace"
               title="Variants, feasibility and attrition in one canvas."
-              body="Compare cohort variants side by side. See feasibility scores, attrition funnels and missing information at a glance — research agent one panel away."
+              body="Compare cohort variants. See feasibility and attrition at a glance."
               tone="surface"
               visual={<WorkspaceMock />}
             />
             <Card
               eyebrow="03 — Value"
-              title="Higher-quality requests. Less back-and-forth. Low-risk to start."
-              body="Clinical intent captured precisely. Ambiguity resolved up front by the agent. Validate on real data, expand when it works."
+              title="Higher-quality requests. Less back-and-forth."
+              body="Ambiguity resolved up front. Validate on real data, expand when it works."
               tone="surface"
               visual={<ValueMock />}
             />
