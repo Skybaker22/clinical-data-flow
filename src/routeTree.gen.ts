@@ -11,7 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RequestDemoRouteImport } from './routes/request-demo'
 import { Route as ProductRouteImport } from './routes/product'
+import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as ForHospitalsRouteImport } from './routes/for-hospitals'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
+import { Route as CookieHinweiseRouteImport } from './routes/cookie-hinweise'
+import { Route as AgbRouteImport } from './routes/agb'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -25,9 +29,29 @@ const ProductRoute = ProductRouteImport.update({
   path: '/product',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ForHospitalsRoute = ForHospitalsRouteImport.update({
   id: '/for-hospitals',
   path: '/for-hospitals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookieHinweiseRoute = CookieHinweiseRouteImport.update({
+  id: '/cookie-hinweise',
+  path: '/cookie-hinweise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgbRoute = AgbRouteImport.update({
+  id: '/agb',
+  path: '/agb',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -44,14 +68,22 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/agb': typeof AgbRoute
+  '/cookie-hinweise': typeof CookieHinweiseRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/for-hospitals': typeof ForHospitalsRoute
+  '/impressum': typeof ImpressumRoute
   '/product': typeof ProductRoute
   '/request-demo': typeof RequestDemoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/agb': typeof AgbRoute
+  '/cookie-hinweise': typeof CookieHinweiseRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/for-hospitals': typeof ForHospitalsRoute
+  '/impressum': typeof ImpressumRoute
   '/product': typeof ProductRoute
   '/request-demo': typeof RequestDemoRoute
 }
@@ -59,20 +91,46 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/agb': typeof AgbRoute
+  '/cookie-hinweise': typeof CookieHinweiseRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/for-hospitals': typeof ForHospitalsRoute
+  '/impressum': typeof ImpressumRoute
   '/product': typeof ProductRoute
   '/request-demo': typeof RequestDemoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/for-hospitals' | '/product' | '/request-demo'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/agb'
+    | '/cookie-hinweise'
+    | '/datenschutz'
+    | '/for-hospitals'
+    | '/impressum'
+    | '/product'
+    | '/request-demo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/for-hospitals' | '/product' | '/request-demo'
+  to:
+    | '/'
+    | '/about'
+    | '/agb'
+    | '/cookie-hinweise'
+    | '/datenschutz'
+    | '/for-hospitals'
+    | '/impressum'
+    | '/product'
+    | '/request-demo'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/agb'
+    | '/cookie-hinweise'
+    | '/datenschutz'
     | '/for-hospitals'
+    | '/impressum'
     | '/product'
     | '/request-demo'
   fileRoutesById: FileRoutesById
@@ -80,7 +138,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AgbRoute: typeof AgbRoute
+  CookieHinweiseRoute: typeof CookieHinweiseRoute
+  DatenschutzRoute: typeof DatenschutzRoute
   ForHospitalsRoute: typeof ForHospitalsRoute
+  ImpressumRoute: typeof ImpressumRoute
   ProductRoute: typeof ProductRoute
   RequestDemoRoute: typeof RequestDemoRoute
 }
@@ -101,11 +163,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/for-hospitals': {
       id: '/for-hospitals'
       path: '/for-hospitals'
       fullPath: '/for-hospitals'
       preLoaderRoute: typeof ForHospitalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-hinweise': {
+      id: '/cookie-hinweise'
+      path: '/cookie-hinweise'
+      fullPath: '/cookie-hinweise'
+      preLoaderRoute: typeof CookieHinweiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agb': {
+      id: '/agb'
+      path: '/agb'
+      fullPath: '/agb'
+      preLoaderRoute: typeof AgbRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -128,10 +218,23 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AgbRoute: AgbRoute,
+  CookieHinweiseRoute: CookieHinweiseRoute,
+  DatenschutzRoute: DatenschutzRoute,
   ForHospitalsRoute: ForHospitalsRoute,
+  ImpressumRoute: ImpressumRoute,
   ProductRoute: ProductRoute,
   RequestDemoRoute: RequestDemoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
