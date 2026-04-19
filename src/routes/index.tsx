@@ -70,7 +70,7 @@ function Home() {
           </div>
 
           {/* Product cards — three across */}
-          <div className="mt-10 md:mt-14 grid md:grid-cols-3 gap-4">
+          <div className="mt-20 md:mt-28 grid md:grid-cols-3 gap-4">
             <Card
               eyebrow="01 — Discovery Agent"
               title="Plain-language clinical questions, structured into discovery runs."
