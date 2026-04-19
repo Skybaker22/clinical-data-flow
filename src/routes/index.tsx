@@ -137,7 +137,7 @@ function Card({
 }: {
   eyebrow: string;
   title: string;
-  body: string;
+  body?: string;
   tone: "brand" | "surface";
   visual?: React.ReactNode;
 }) {
@@ -158,7 +158,7 @@ function Card({
         <h3 className="font-display text-lg md:text-xl leading-snug text-foreground">
           {title}
         </h3>
-        <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{body}</p>
+        {body && <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{body}</p>}
       </div>
       {visual && <div className="relative mt-auto pt-5">{visual}</div>}
     </article>
