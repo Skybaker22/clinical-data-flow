@@ -14,12 +14,6 @@ export function SiteFooter() {
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               Infrastructure for secure healthcare data collaboration.
             </p>
-            <a
-              href="mailto:info@datax.me"
-              className="inline-block mt-4 text-sm text-foreground hover:text-brand transition-colors font-mono"
-            >
-              info@datax.me
-            </a>
           </div>
 
           <div className="md:col-span-3">
