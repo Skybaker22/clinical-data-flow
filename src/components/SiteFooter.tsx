@@ -36,12 +36,9 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-t hairline mt-16 pt-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground font-mono">
+        <div className="border-t hairline mt-16 pt-8 flex justify-center">
+          <p className="text-xs text-muted-foreground font-mono text-center">
             © 2026 DataX UG (haftungsbeschränkt)
-          </p>
-          <p className="text-xs text-muted-foreground font-mono">
-            Infrastructure for secure healthcare data collaboration
           </p>
         </div>
       </div>
