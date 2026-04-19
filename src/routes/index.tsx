@@ -125,22 +125,16 @@ function Card({
   title,
   body,
   tone,
-  image,
-  imageAlt,
-  className,
+  visual,
 }: {
   eyebrow: string;
   title: string;
   body: string;
   tone: "brand" | "surface";
-  image?: string;
-  imageAlt?: string;
-  className?: string;
+  visual?: React.ReactNode;
 }) {
   return (
-    <article
-      className={`relative rounded-md border hairline p-6 md:p-7 bg-surface/60 backdrop-blur-sm overflow-hidden group transition-colors hover:bg-surface flex flex-col ${className ?? ""}`}
-    >
+    <article className="relative rounded-md border hairline p-6 bg-surface/60 backdrop-blur-sm overflow-hidden group transition-colors hover:bg-surface flex flex-col min-h-[320px]">
       {tone === "brand" && (
         <div
           aria-hidden
@@ -158,17 +152,7 @@ function Card({
         </h3>
         <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{body}</p>
       </div>
-      {image && (
-        <div className="relative mt-6 rounded-md border hairline overflow-hidden bg-background/60 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.6)]">
-          <img
-            src={image}
-            alt={imageAlt ?? ""}
-            loading="lazy"
-            className="block w-full h-auto"
-          />
-        </div>
-      )}
+      {visual && <div className="relative mt-5">{visual}</div>}
     </article>
   );
 }
-
