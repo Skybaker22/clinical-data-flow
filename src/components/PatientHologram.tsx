@@ -55,21 +55,21 @@ export function PatientHologram() {
     >
       {/* Soft brand halo behind the figure */}
       <div
-        className="absolute right-[6%] top-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full opacity-50"
+        className="absolute right-[2%] top-1/2 -translate-y-1/2 w-[760px] h-[760px] rounded-full opacity-70"
         style={{
           background:
-            "radial-gradient(circle, color-mix(in oklab, var(--color-brand) 18%, transparent) 0%, transparent 65%)",
-          filter: "blur(8px)",
+            "radial-gradient(circle, color-mix(in oklab, var(--color-brand) 24%, transparent) 0%, transparent 65%)",
+          filter: "blur(10px)",
           animation: "dx-halo 8s ease-in-out infinite",
         }}
       />
 
       <svg
         viewBox="0 0 200 400"
-        className="relative h-[88%] max-h-[640px] w-auto opacity-[0.55] mr-[-2%] md:mr-[2%]"
+        className="relative h-[120%] max-h-[900px] w-auto opacity-[0.78] mr-[-6%] md:mr-[-2%]"
         style={{
           filter:
-            "drop-shadow(0 0 12px color-mix(in oklab, var(--color-brand) 35%, transparent))",
+            "drop-shadow(0 0 18px color-mix(in oklab, var(--color-brand) 50%, transparent))",
         }}
       >
         <defs>
