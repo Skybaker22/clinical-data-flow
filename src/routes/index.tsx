@@ -96,15 +96,24 @@ function Home() {
           </div>
 
           {/* Trust strip */}
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-muted-foreground">
-            <span className="label-eyebrow">Built for</span>
-            <span>University hospitals</span>
-            <span className="opacity-30">·</span>
-            <span>Medical informatics institutes</span>
-            <span className="opacity-30">·</span>
-            <span>Data Integration Centres</span>
-            <span className="opacity-30">·</span>
-            <span>Hospital data offices</span>
+          <div className="mt-12 pt-8 border-t hairline">
+            <p className="label-eyebrow mb-4">Built for</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-3">
+              {[
+                "University hospitals",
+                "Medical informatics institutes",
+                "Data Integration Centres",
+                "Hospital data offices",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                  <span
+                    aria-hidden
+                    className="mt-1.5 inline-block w-1.5 h-1.5 rounded-full bg-brand shrink-0"
+                  />
+                  <span className="leading-snug">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>
