@@ -139,21 +139,31 @@ function Card({
   tone: "brand" | "grid" | "mesh";
   visual?: React.ReactNode;
 }) {
-  const toneBg: Record<typeof tone, string> = {
-    brand:
-      "radial-gradient(90% 70% at 0% 0%, color-mix(in oklab, var(--color-brand) 28%, transparent) 0%, transparent 60%), radial-gradient(60% 50% at 100% 100%, color-mix(in oklab, var(--color-brand) 14%, transparent) 0%, transparent 65%)",
-    grid:
-      "linear-gradient(180deg, color-mix(in oklab, var(--color-brand) 6%, transparent), transparent 70%), repeating-linear-gradient(0deg, color-mix(in oklab, var(--color-foreground) 4%, transparent) 0 1px, transparent 1px 24px), repeating-linear-gradient(90deg, color-mix(in oklab, var(--color-foreground) 4%, transparent) 0 1px, transparent 1px 24px)",
-    mesh:
-      "radial-gradient(50% 60% at 100% 0%, color-mix(in oklab, var(--color-brand) 22%, transparent) 0%, transparent 60%), radial-gradient(60% 60% at 0% 100%, color-mix(in oklab, var(--color-brand) 10%, transparent) 0%, transparent 65%), linear-gradient(135deg, color-mix(in oklab, var(--color-foreground) 3%, transparent), transparent 60%)",
+  const toneConfig: Record<typeof tone, { bg: string; ring: string }> = {
+    brand: {
+      bg: "radial-gradient(110% 90% at 0% 0%, color-mix(in oklab, var(--tint-teal) 38%, transparent) 0%, transparent 60%), radial-gradient(70% 60% at 100% 100%, color-mix(in oklab, var(--tint-teal) 20%, transparent) 0%, transparent 65%), linear-gradient(180deg, color-mix(in oklab, var(--tint-teal) 10%, transparent), transparent 80%)",
+      ring: "color-mix(in oklab, var(--tint-teal) 35%, transparent)",
+    },
+    grid: {
+      bg: "radial-gradient(100% 80% at 100% 0%, color-mix(in oklab, var(--tint-violet) 32%, transparent) 0%, transparent 60%), radial-gradient(80% 60% at 0% 100%, color-mix(in oklab, var(--tint-violet) 18%, transparent) 0%, transparent 65%), repeating-linear-gradient(0deg, color-mix(in oklab, var(--tint-violet) 6%, transparent) 0 1px, transparent 1px 26px), repeating-linear-gradient(90deg, color-mix(in oklab, var(--tint-violet) 6%, transparent) 0 1px, transparent 1px 26px)",
+      ring: "color-mix(in oklab, var(--tint-violet) 35%, transparent)",
+    },
+    mesh: {
+      bg: "radial-gradient(90% 70% at 50% 0%, color-mix(in oklab, var(--tint-amber) 30%, transparent) 0%, transparent 60%), radial-gradient(70% 60% at 0% 100%, color-mix(in oklab, var(--tint-amber) 18%, transparent) 0%, transparent 65%), linear-gradient(135deg, color-mix(in oklab, var(--tint-amber) 8%, transparent), transparent 70%)",
+      ring: "color-mix(in oklab, var(--tint-amber) 35%, transparent)",
+    },
   };
+  const cfg = toneConfig[tone];
 
   return (
-    <article className="relative rounded-md border hairline p-5 bg-surface/40 backdrop-blur-sm overflow-hidden group transition-colors hover:bg-surface flex flex-col min-h-[440px]">
+    <article
+      className="relative rounded-md border p-5 bg-surface/40 backdrop-blur-sm overflow-hidden group transition-colors flex flex-col min-h-[440px]"
+      style={{ borderColor: cfg.ring }}
+    >
       <div
         aria-hidden
-        className="absolute inset-0 opacity-90 pointer-events-none"
-        style={{ background: toneBg[tone] }}
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: cfg.bg }}
       />
       <div className="relative">
         <p className="label-eyebrow mb-2">{eyebrow}</p>
