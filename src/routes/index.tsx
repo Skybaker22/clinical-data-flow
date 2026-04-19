@@ -73,12 +73,14 @@ function Home() {
               title="Plain-language clinical questions, structured into discovery runs."
               body="Natural-language intake. The agent turns intent into deterministic criteria, scans connected sources, and verifies governance — every step traceable."
               tone="brand"
+              visual={<AgentMock />}
             />
             <Card
               eyebrow="02 — Discovery Workspace"
               title="Variants, feasibility and attrition in one canvas."
               body="Compare cohort variants side by side. See feasibility scores, attrition funnels and missing information at a glance — research agent one panel away."
               tone="surface"
+              visual={<WorkspaceMock />}
             />
             <Card
               eyebrow="03 — Value"
