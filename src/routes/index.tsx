@@ -47,7 +47,7 @@ function Home() {
           <div className="max-w-3xl relative">
             <p className="label-eyebrow mb-5">Data Discovery Agents for Clinical Requests</p>
             <h1 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
-              Describe a cohort.<br />
+              Search for clinical evidence.<br />
               <span className="text-muted-foreground">Let the agent do the discovery.</span>
             </h1>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
