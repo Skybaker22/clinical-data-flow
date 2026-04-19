@@ -131,26 +131,48 @@ function Stat({ value, label }: { value: string; label: string }) {
   );
 }
 
+type Tint = "teal" | "indigo" | "warm";
+
+const TINT_MAP: Record<Tint, { base: string; accent: string; dot: string }> = {
+  teal: {
+    base: "oklch(0.78 0.14 175)",
+    accent: "oklch(0.82 0.15 175)",
+    dot: "oklch(0.78 0.14 175)",
+  },
+  indigo: {
+    base: "oklch(0.62 0.09 255)",
+    accent: "oklch(0.70 0.10 255)",
+    dot: "oklch(0.70 0.10 255)",
+  },
+  warm: {
+    base: "oklch(0.72 0.09 60)",
+    accent: "oklch(0.78 0.10 60)",
+    dot: "oklch(0.78 0.10 60)",
+  },
+};
+
 function Card({
   eyebrow,
   title,
   body,
   tone,
+  tint = "teal",
   visual,
 }: {
   eyebrow: string;
   title: string;
   body?: string;
   tone: "brand" | "surface";
+  tint?: Tint;
   visual?: React.ReactNode;
 }) {
+  const t = TINT_MAP[tint];
   return (
     <article
       className="relative rounded-md p-6 overflow-hidden group flex flex-col min-h-[420px] transition-all duration-300 hover:-translate-y-0.5"
       style={{
-        background:
-          "linear-gradient(180deg, color-mix(in oklab, var(--color-background) 92%, black) 0%, color-mix(in oklab, var(--color-background) 96%, black) 100%)",
-        border: "1px solid var(--color-hairline)",
+        background: `linear-gradient(180deg, color-mix(in oklab, ${t.base} 6%, color-mix(in oklab, var(--color-background) 92%, black)) 0%, color-mix(in oklab, ${t.base} 3%, color-mix(in oklab, var(--color-background) 96%, black)) 100%)`,
+        border: `1px solid color-mix(in oklab, ${t.base} 18%, var(--color-hairline))`,
         boxShadow:
           "inset 0 1px 0 color-mix(in oklab, white 4%, transparent), 0 1px 0 color-mix(in oklab, black 40%, transparent)",
       }}
@@ -174,10 +196,7 @@ function Card({
         aria-hidden
         className="absolute inset-x-0 top-0 h-px"
         style={{
-          background:
-            tone === "brand"
-              ? "linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-brand) 70%, transparent), transparent)"
-              : "linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-foreground) 18%, transparent), transparent)",
+          background: `linear-gradient(90deg, transparent, color-mix(in oklab, ${t.accent} 70%, transparent), transparent)`,
         }}
       />
       {tone === "brand" && (
@@ -185,8 +204,7 @@ function Card({
           aria-hidden
           className="absolute -top-24 -right-16 w-64 h-64 rounded-full pointer-events-none opacity-50 blur-3xl"
           style={{
-            background:
-              "radial-gradient(circle, color-mix(in oklab, var(--color-brand) 30%, transparent) 0%, transparent 70%)",
+            background: `radial-gradient(circle, color-mix(in oklab, ${t.accent} 30%, transparent) 0%, transparent 70%)`,
           }}
         />
       )}
@@ -195,12 +213,7 @@ function Card({
         <span
           aria-hidden
           className="inline-block w-1.5 h-1.5 rounded-full mt-1"
-          style={{
-            background:
-              tone === "brand"
-                ? "var(--color-brand)"
-                : "color-mix(in oklab, var(--color-foreground) 25%, transparent)",
-          }}
+          style={{ background: t.dot }}
         />
       </div>
       <div className="relative mt-5">
