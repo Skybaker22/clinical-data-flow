@@ -155,7 +155,7 @@ function Card({
         </h3>
         <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{body}</p>
       </div>
-      {visual && <div className="relative mt-5">{visual}</div>}
+      {visual && <div className="relative mt-auto pt-5">{visual}</div>}
     </article>
   );
 }
