@@ -81,7 +81,7 @@ export function PatientHologram() {
         <g stroke="var(--color-brand)" strokeWidth={0.35} fill="none">
           {(() => {
             const MAX_DIST = 28; // connect only nearby dots
-            const lines: JSX.Element[] = [];
+            const lines: React.ReactElement[] = [];
             for (let i = 0; i < DOTS.length; i++) {
               for (let j = i + 1; j < DOTS.length; j++) {
                 const [x1, y1] = DOTS[i];
