@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import productAgent from "@/assets/product-agent.png";
-import productWorkspace from "@/assets/product-workspace.png";
+import { AgentMock, WorkspaceMock, ValueMock } from "@/components/ProductMocks";
 
 export const Route = createFileRoute("/")({
   head: () => ({
