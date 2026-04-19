@@ -9,14 +9,6 @@ export function SiteHeader() {
             Data<span className="text-brand">X</span>
           </span>
         </Link>
-        <nav className="hidden md:flex items-center gap-8 text-sm">
-          <Link to="/impressum" className="text-muted-foreground hover:text-foreground transition-colors">
-            Impressum
-          </Link>
-          <Link to="/datenschutz" className="text-muted-foreground hover:text-foreground transition-colors">
-            Datenschutz
-          </Link>
-        </nav>
         <a
           href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
           className="btn-brand text-xs px-4 py-2"
