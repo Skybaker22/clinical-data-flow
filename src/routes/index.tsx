@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { AgentMock, WorkspaceMock, ValueMock } from "@/components/ProductMocks";
+import { PatientHologram } from "@/components/PatientHologram";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,8 +41,10 @@ function Home() {
 
       {/* Hero — sized to fit above the fold */}
       <main className="flex-1 relative">
-        <section className="container-x pt-12 md:pt-16 pb-10">
-          <div className="max-w-3xl">
+        <section className="container-x pt-12 md:pt-16 pb-10 relative">
+          {/* Digital patient hologram — decorative background */}
+          <PatientHologram />
+          <div className="max-w-3xl relative">
             <p className="label-eyebrow mb-5">Data Discovery Agents for Clinical Requests</p>
             <h1 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
               Describe a cohort.<br />
