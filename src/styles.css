@@ -38,6 +38,8 @@
   --color-ring: var(--ring);
   --color-hairline: var(--hairline);
 
+  --color-brand: var(--brand);
+
   --color-status-active: var(--status-active);
   --color-status-pending: var(--status-pending);
   --color-status-done: var(--status-done);
@@ -78,6 +80,9 @@
   --hairline: oklch(0.88 0.008 240);
   --input: oklch(0.9 0.008 240);
   --ring: oklch(0.55 0.055 240);
+
+  /* DataX brand teal — used sparingly (logo accent) */
+  --brand: oklch(0.78 0.14 175);
 
   --status-active: oklch(0.55 0.08 230);
   --status-pending: oklch(0.65 0.08 80);
