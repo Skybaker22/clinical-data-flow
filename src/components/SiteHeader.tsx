@@ -32,9 +32,12 @@ export function SiteHeader() {
             About
           </Link>
         </nav>
-        <Link to="/request-demo" className="btn-primary text-xs px-4 py-2">
+        <a
+          href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
+          className="btn-brand text-xs px-4 py-2"
+        >
           Request Demo
-        </Link>
+        </a>
       </div>
     </header>
   );
