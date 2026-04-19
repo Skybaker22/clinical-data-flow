@@ -6,11 +6,10 @@ export function SiteFooter() {
       <div className="container-x py-16">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-5 h-5 border border-foreground relative">
-                <div className="absolute inset-1 bg-foreground" />
-              </div>
-              <span className="font-display text-lg tracking-tight">DataX</span>
+            <div className="mb-4">
+              <span className="font-display text-lg tracking-tight text-foreground">
+                Data<span className="text-brand font-semibold">X</span>
+              </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               Infrastructure for secure healthcare data collaboration.

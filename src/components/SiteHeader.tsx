@@ -4,11 +4,10 @@ export function SiteHeader() {
   return (
     <header className="border-b hairline bg-background/80 backdrop-blur-sm sticky top-0 z-40">
       <div className="container-x flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-5 h-5 border border-foreground relative">
-            <div className="absolute inset-1 bg-foreground" />
-          </div>
-          <span className="font-display text-lg tracking-tight">DataX</span>
+        <Link to="/" className="flex items-center">
+          <span className="font-display text-lg tracking-tight text-foreground">
+            Data<span className="text-brand font-semibold">X</span>
+          </span>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm">
           <Link
