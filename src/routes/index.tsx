@@ -73,7 +73,7 @@ function Home() {
               title="Plain-language clinical questions, structured into discovery runs."
               body="Natural-language intake. The agent turns intent into deterministic criteria, scans connected sources, and verifies governance — every step traceable."
               tone="brand"
-              visual={agentMock()}
+              visual={<AgentMock />}
             />
             <Card
               eyebrow="02 — Discovery Workspace"
