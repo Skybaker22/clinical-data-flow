@@ -14,6 +14,12 @@ export function SiteFooter() {
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               Infrastructure for secure healthcare data collaboration.
             </p>
+            <a
+              href="mailto:info@datax.me"
+              className="inline-block mt-4 text-sm text-foreground hover:text-brand transition-colors font-mono"
+            >
+              info@datax.me
+            </a>
           </div>
 
           <div className="md:col-span-3">
@@ -22,25 +28,31 @@ export function SiteFooter() {
               <li><Link to="/product" className="text-muted-foreground hover:text-foreground">Product</Link></li>
               <li><Link to="/for-hospitals" className="text-muted-foreground hover:text-foreground">For Hospitals</Link></li>
               <li><Link to="/about" className="text-muted-foreground hover:text-foreground">About</Link></li>
-              <li><Link to="/request-demo" className="text-muted-foreground hover:text-foreground">Request Demo</Link></li>
+              <li>
+                <a
+                  href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Request Demo
+                </a>
+              </li>
             </ul>
           </div>
 
           <div className="md:col-span-4">
             <p className="label-eyebrow mb-4">Legal</p>
             <ul className="space-y-3 text-sm">
-              <li><a href="#" className="text-muted-foreground hover:text-foreground">Impressum</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground">Datenschutz</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground">Cookie-Hinweise</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground">Cookie-Einstellungen</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground">AGB</a></li>
+              <li><Link to="/impressum" className="text-muted-foreground hover:text-foreground">Impressum</Link></li>
+              <li><Link to="/datenschutz" className="text-muted-foreground hover:text-foreground">Datenschutz</Link></li>
+              <li><Link to="/cookie-hinweise" className="text-muted-foreground hover:text-foreground">Cookie-Hinweise</Link></li>
+              <li><Link to="/agb" className="text-muted-foreground hover:text-foreground">AGB</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t hairline mt-16 pt-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground font-mono">
-            © 2026 DataX UG (haftungsbeschränkt) i.G.
+            © 2026 DataX UG (haftungsbeschränkt)
           </p>
           <p className="text-xs text-muted-foreground font-mono">
             Made for hospital workflows.

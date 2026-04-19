@@ -35,7 +35,12 @@ function Home() {
               auditable, review-ready workflow.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link to="/request-demo" className="btn-primary">Request Demo</Link>
+              <a
+                href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
+                className="btn-brand"
+              >
+                Request Demo
+              </a>
               <Link to="/product" className="btn-ghost">View Product</Link>
             </div>
           </div>
@@ -133,9 +138,12 @@ function Home() {
             </h2>
             <p className="mt-3 text-muted-foreground">Request a conversation.</p>
           </div>
-          <Link to="/request-demo" className="btn-primary self-start md:self-auto">
+          <a
+            href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
+            className="btn-brand self-start md:self-auto"
+          >
             Request Demo
-          </Link>
+          </a>
         </div>
       </section>
 
