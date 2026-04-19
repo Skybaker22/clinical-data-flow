@@ -35,7 +35,7 @@ function Home() {
       <section id="top" className="border-b hairline">
         <div className="container-x pt-20 md:pt-28 pb-16 md:pb-24">
           <div className="max-w-3xl">
-            <p className="label-eyebrow mb-6">DataX · Agentic Discovery Workspace</p>
+            <p className="label-eyebrow mb-6">Data Discovery Agents for Clinical Requests</p>
             <h1 className="font-display text-4xl md:text-6xl leading-[1.05] text-foreground">
               Describe a cohort. Let the agent do the discovery.
             </h1>
