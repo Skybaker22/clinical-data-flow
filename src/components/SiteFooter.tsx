@@ -5,35 +5,27 @@ export function SiteFooter() {
     <footer className="border-t hairline mt-32">
       <div className="container-x py-16">
         <div className="grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-5">
+          <div className="md:col-span-6">
             <div className="mb-4">
               <span className="font-display text-xl font-bold tracking-tight text-foreground">
                 Data<span className="text-brand">X</span>
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              Infrastructure for secure healthcare data collaboration.
+              Agentic discovery workspace for hospital research teams.
             </p>
           </div>
 
           <div className="md:col-span-3">
-            <p className="label-eyebrow mb-4">Product</p>
+            <p className="label-eyebrow mb-4">Site</p>
             <ul className="space-y-3 text-sm">
-              <li><Link to="/product" className="text-muted-foreground hover:text-foreground">Product</Link></li>
-              <li><Link to="/for-hospitals" className="text-muted-foreground hover:text-foreground">For Hospitals</Link></li>
-              <li><Link to="/about" className="text-muted-foreground hover:text-foreground">About</Link></li>
-              <li>
-                <a
-                  href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Request Demo
-                </a>
-              </li>
+              <li><a href="/#agent" className="text-muted-foreground hover:text-foreground">Agent</a></li>
+              <li><a href="/#workspace" className="text-muted-foreground hover:text-foreground">Workspace</a></li>
+              <li><a href="/#audience" className="text-muted-foreground hover:text-foreground">For hospitals</a></li>
             </ul>
           </div>
 
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
             <p className="label-eyebrow mb-4">Legal</p>
             <ul className="space-y-3 text-sm">
               <li><Link to="/impressum" className="text-muted-foreground hover:text-foreground">Impressum</Link></li>

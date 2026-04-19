@@ -10,27 +10,18 @@ export function SiteHeader() {
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm">
-          <Link
-            to="/product"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-            activeProps={{ className: "text-foreground" }}
-          >
-            Product
-          </Link>
-          <Link
-            to="/for-hospitals"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-            activeProps={{ className: "text-foreground" }}
-          >
-            For Hospitals
-          </Link>
-          <Link
-            to="/about"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-            activeProps={{ className: "text-foreground" }}
-          >
-            About
-          </Link>
+          <a href="/#agent" className="text-muted-foreground hover:text-foreground transition-colors">
+            Agent
+          </a>
+          <a href="/#workspace" className="text-muted-foreground hover:text-foreground transition-colors">
+            Workspace
+          </a>
+          <a href="/#reasoning" className="text-muted-foreground hover:text-foreground transition-colors">
+            How it reasons
+          </a>
+          <a href="/#audience" className="text-muted-foreground hover:text-foreground transition-colors">
+            For hospitals
+          </a>
         </nav>
         <a
           href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
