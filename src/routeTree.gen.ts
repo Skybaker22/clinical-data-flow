@@ -9,34 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as RequestDemoRouteImport } from './routes/request-demo'
-import { Route as ProductRouteImport } from './routes/product'
 import { Route as ImpressumRouteImport } from './routes/impressum'
-import { Route as ForHospitalsRouteImport } from './routes/for-hospitals'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as CookieHinweiseRouteImport } from './routes/cookie-hinweise'
 import { Route as AgbRouteImport } from './routes/agb'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
-const RequestDemoRoute = RequestDemoRouteImport.update({
-  id: '/request-demo',
-  path: '/request-demo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductRoute = ProductRouteImport.update({
-  id: '/product',
-  path: '/product',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ImpressumRoute = ImpressumRouteImport.update({
   id: '/impressum',
   path: '/impressum',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ForHospitalsRoute = ForHospitalsRouteImport.update({
-  id: '/for-hospitals',
-  path: '/for-hospitals',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatenschutzRoute = DatenschutzRouteImport.update({
@@ -54,11 +35,6 @@ const AgbRoute = AgbRouteImport.update({
   path: '/agb',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -67,114 +43,55 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/agb': typeof AgbRoute
   '/cookie-hinweise': typeof CookieHinweiseRoute
   '/datenschutz': typeof DatenschutzRoute
-  '/for-hospitals': typeof ForHospitalsRoute
   '/impressum': typeof ImpressumRoute
-  '/product': typeof ProductRoute
-  '/request-demo': typeof RequestDemoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/agb': typeof AgbRoute
   '/cookie-hinweise': typeof CookieHinweiseRoute
   '/datenschutz': typeof DatenschutzRoute
-  '/for-hospitals': typeof ForHospitalsRoute
   '/impressum': typeof ImpressumRoute
-  '/product': typeof ProductRoute
-  '/request-demo': typeof RequestDemoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/agb': typeof AgbRoute
   '/cookie-hinweise': typeof CookieHinweiseRoute
   '/datenschutz': typeof DatenschutzRoute
-  '/for-hospitals': typeof ForHospitalsRoute
   '/impressum': typeof ImpressumRoute
-  '/product': typeof ProductRoute
-  '/request-demo': typeof RequestDemoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/agb'
-    | '/cookie-hinweise'
-    | '/datenschutz'
-    | '/for-hospitals'
-    | '/impressum'
-    | '/product'
-    | '/request-demo'
+  fullPaths: '/' | '/agb' | '/cookie-hinweise' | '/datenschutz' | '/impressum'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/agb'
-    | '/cookie-hinweise'
-    | '/datenschutz'
-    | '/for-hospitals'
-    | '/impressum'
-    | '/product'
-    | '/request-demo'
+  to: '/' | '/agb' | '/cookie-hinweise' | '/datenschutz' | '/impressum'
   id:
     | '__root__'
     | '/'
-    | '/about'
     | '/agb'
     | '/cookie-hinweise'
     | '/datenschutz'
-    | '/for-hospitals'
     | '/impressum'
-    | '/product'
-    | '/request-demo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
   AgbRoute: typeof AgbRoute
   CookieHinweiseRoute: typeof CookieHinweiseRoute
   DatenschutzRoute: typeof DatenschutzRoute
-  ForHospitalsRoute: typeof ForHospitalsRoute
   ImpressumRoute: typeof ImpressumRoute
-  ProductRoute: typeof ProductRoute
-  RequestDemoRoute: typeof RequestDemoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/request-demo': {
-      id: '/request-demo'
-      path: '/request-demo'
-      fullPath: '/request-demo'
-      preLoaderRoute: typeof RequestDemoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/product': {
-      id: '/product'
-      path: '/product'
-      fullPath: '/product'
-      preLoaderRoute: typeof ProductRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/impressum': {
       id: '/impressum'
       path: '/impressum'
       fullPath: '/impressum'
       preLoaderRoute: typeof ImpressumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/for-hospitals': {
-      id: '/for-hospitals'
-      path: '/for-hospitals'
-      fullPath: '/for-hospitals'
-      preLoaderRoute: typeof ForHospitalsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/datenschutz': {
@@ -198,13 +115,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AgbRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -217,14 +127,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
   AgbRoute: AgbRoute,
   CookieHinweiseRoute: CookieHinweiseRoute,
   DatenschutzRoute: DatenschutzRoute,
-  ForHospitalsRoute: ForHospitalsRoute,
   ImpressumRoute: ImpressumRoute,
-  ProductRoute: ProductRoute,
-  RequestDemoRoute: RequestDemoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

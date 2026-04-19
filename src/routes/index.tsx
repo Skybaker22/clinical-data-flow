@@ -1,7 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ProductShot } from "@/components/ProductShot";
+import { ReasoningDiagram } from "@/components/ReasoningDiagram";
 import workspaceShot from "@/assets/product-workspace.png";
 import agentShot from "@/assets/product-agent.png";
 
@@ -12,7 +13,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "DataX is the agentic discovery workspace for hospital research teams. Describe a cohort in plain language, and the Discovery Agent scans connected clinical data sources to assess feasibility.",
+          "DataX is the agentic discovery workspace for hospital research teams. Describe a cohort in plain language — the Discovery Agent assesses feasibility on connected clinical data.",
+      },
+      { property: "og:title", content: "DataX — Agentic Discovery Workspace" },
+      {
+        property: "og:description",
+        content:
+          "Plain-language cohort discovery for university hospitals, medical informatics institutes and Data Integration Centres.",
       },
     ],
   }),
@@ -25,7 +32,7 @@ function Home() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="border-b hairline">
+      <section id="top" className="border-b hairline">
         <div className="container-x pt-20 md:pt-28 pb-16 md:pb-24">
           <div className="max-w-3xl">
             <p className="label-eyebrow mb-6">DataX · Agentic Discovery Workspace</p>
@@ -33,9 +40,9 @@ function Home() {
               Describe a cohort. Let the agent do the discovery.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DataX is an agentic discovery workspace for hospital research teams. Ask a clinical
-              question in plain language — the Discovery Agent queries connected data sources,
-              evaluates feasibility, and verifies governance.
+              An agentic discovery workspace for hospital research teams. Ask in plain
+              language — the Discovery Agent queries connected data sources, evaluates
+              feasibility, and verifies governance.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
@@ -44,119 +51,122 @@ function Home() {
               >
                 Request Demo
               </a>
-              <Link to="/product" className="btn-ghost">View Product</Link>
+              <a href="#workspace" className="btn-ghost">See the product</a>
             </div>
           </div>
 
           <div className="mt-16 md:mt-20">
             <ProductShot
               src={workspaceShot}
-              alt="DataX Discovery Workspace showing a cohort feasibility assessment with variants, attrition funnel, and a research agent panel."
+              alt="DataX Discovery Workspace showing a cohort feasibility assessment with variants, attrition funnel and a research agent panel."
               caption="Discovery Workspace · Feasibility & Attrition"
             />
           </div>
         </div>
       </section>
 
-      {/* The two pillars */}
-      <section className="container-x py-24 md:py-32">
-        <div className="grid md:grid-cols-12 gap-10 mb-16">
-          <div className="md:col-span-6">
-            <p className="label-eyebrow mb-4">01 — The product</p>
-            <h2 className="font-display text-3xl md:text-5xl text-foreground leading-tight">
-              An Agentic Discovery Workspace, powered by a Discovery Agent.
-            </h2>
-          </div>
-          <div className="md:col-span-5 md:col-start-8 self-end">
-            <p className="text-muted-foreground leading-relaxed">
-              Two surfaces, one workflow: a workspace for the researcher, and an agent that does
-              the structured work behind it.
-            </p>
-          </div>
-        </div>
-
-        {/* Pillar 1 — Discovery Agent */}
-        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center pt-8">
+      {/* Discovery Agent */}
+      <section id="agent" className="container-x py-24 md:py-32">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <div className="md:col-span-5">
-            <p className="label-eyebrow mb-4">Discovery Agent</p>
-            <h3 className="font-display text-2xl md:text-3xl text-foreground leading-tight">
+            <p className="label-eyebrow mb-4">01 — Discovery Agent</p>
+            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
               Plain-language clinical questions, structured into discovery runs.
-            </h3>
+            </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
               Researchers describe a cohort in natural language. The agent turns it into
-              deterministic criteria, scans connected sources, evaluates feasibility, and checks
-              governance — every step traceable.
+              deterministic criteria, scans connected sources, evaluates feasibility, and
+              checks governance — every step traceable.
             </p>
-            <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
-              <li className="flex gap-3"><span className="text-brand font-mono">→</span> Scan connected clinical data sources</li>
-              <li className="flex gap-3"><span className="text-brand font-mono">→</span> Evaluate feasibility, coverage and data quality</li>
-              <li className="flex gap-3"><span className="text-brand font-mono">→</span> Verify compliance, privacy and access policies</li>
-            </ul>
           </div>
           <div className="md:col-span-7">
             <ProductShot
               src={agentShot}
-              alt="DataX Discovery Agent intake screen asking 'What would you like to study?' with example cohort prompts and recent runs."
+              alt="DataX Discovery Agent intake screen with example cohort prompts and recent runs."
               caption="Discovery Agent · Natural-language intake"
             />
           </div>
         </div>
       </section>
 
-      {/* Pillar 2 — Workspace */}
-      <section className="border-y hairline bg-surface/40">
+      {/* How DataX reasons — adapted from deck */}
+      <section id="reasoning" className="border-y hairline bg-surface/40">
         <div className="container-x py-24 md:py-32">
-          <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-            <div className="md:col-span-7 md:order-1 order-2">
-              <ProductShot
-                src={workspaceShot}
-                alt="DataX Discovery Workspace with cohort variants, feasibility score, missing information panel and attrition funnel."
-                caption="Discovery Workspace · Variants & Attrition"
-              />
+          <div className="grid md:grid-cols-12 gap-10 mb-14">
+            <div className="md:col-span-6">
+              <p className="label-eyebrow mb-4">02 — How DataX reasons</p>
+              <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
+                Three layers, from clinical intent to protected signal.
+              </h2>
             </div>
-            <div className="md:col-span-5 md:order-2 order-1">
-              <p className="label-eyebrow mb-4">Discovery Workspace</p>
-              <h3 className="font-display text-2xl md:text-3xl text-foreground leading-tight">
-                One workspace for variants, feasibility, and attrition.
-              </h3>
-              <p className="mt-5 text-muted-foreground leading-relaxed">
-                Compare cohort variants side by side. See feasibility scores, attrition funnels,
-                and missing information at a glance — with the research agent always one panel
-                away.
-              </p>
-              <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
-                <li className="flex gap-3"><span className="text-brand font-mono">→</span> Cohort variants with deterministic criteria</li>
-                <li className="flex gap-3"><span className="text-brand font-mono">→</span> Feasibility score and attrition funnel</li>
-                <li className="flex gap-3"><span className="text-brand font-mono">→</span> Inline research agent for refinement</li>
-              </ul>
+          </div>
+          <ReasoningDiagram />
+        </div>
+      </section>
+
+      {/* Discovery Workspace detail */}
+      <section id="workspace" className="container-x py-24 md:py-32">
+        <div className="grid md:grid-cols-12 gap-10 mb-12">
+          <div className="md:col-span-6">
+            <p className="label-eyebrow mb-4">03 — Discovery Workspace</p>
+            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
+              One workspace for variants, feasibility, and attrition.
+            </h2>
+            <p className="mt-5 text-muted-foreground leading-relaxed">
+              Compare cohort variants side by side. See feasibility scores, attrition
+              funnels, and missing information at a glance — with the research agent
+              always one panel away.
+            </p>
+          </div>
+        </div>
+        <ul className="grid md:grid-cols-3 border-t border-l hairline">
+          {[
+            ["Variants", "Cohort variants with deterministic criteria"],
+            ["Feasibility", "Score, coverage and data quality"],
+            ["Attrition", "Inline funnel and missing information"],
+          ].map(([k, v]) => (
+            <li key={k} className="border-r border-b hairline p-8 bg-background">
+              <p className="label-eyebrow mb-3">{k}</p>
+              <p className="font-display text-lg text-foreground leading-snug">{v}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Built for */}
+      <section id="audience" className="border-t hairline">
+        <div className="container-x py-24 md:py-32">
+          <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-5">
+              <p className="label-eyebrow mb-4">04 — Built for</p>
+              <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
+                Hospital research and data teams.
+              </h2>
             </div>
+            <ul className="md:col-span-7 grid sm:grid-cols-2 gap-px bg-border border hairline self-start">
+              {[
+                "University hospitals",
+                "Medical informatics institutes",
+                "Data Integration Centres",
+                "Hospital data offices",
+              ].map((a) => (
+                <li key={a} className="bg-background p-6">
+                  <p className="font-display text-base text-foreground">{a}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Built for */}
-      <section className="container-x py-24 md:py-32">
-        <div className="max-w-3xl">
-          <p className="label-eyebrow mb-6">02 — Audience</p>
-          <h2 className="font-display text-3xl md:text-5xl text-foreground leading-tight">
-            Built for hospital research and data teams.
-          </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            University hospitals, medical informatics institutes, Data Integration Centres,
-            research IT and hospital data offices.
-          </p>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section className="border-t hairline">
+      <section id="contact" className="border-t hairline">
         <div className="container-x py-20 md:py-24 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <p className="label-eyebrow mb-4">Get in touch</p>
             <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight max-w-xl">
               See the Discovery Agent on your data.
             </h2>
-            <p className="mt-3 text-muted-foreground">Request a conversation.</p>
           </div>
           <a
             href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
