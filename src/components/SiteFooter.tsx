@@ -7,8 +7,8 @@ export function SiteFooter() {
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <div className="mb-4">
-              <span className="font-display text-lg tracking-tight text-foreground">
-                Data<span className="text-brand font-semibold">X</span>
+              <span className="font-display text-xl font-bold tracking-tight text-foreground">
+                Data<span className="text-brand">X</span>
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">

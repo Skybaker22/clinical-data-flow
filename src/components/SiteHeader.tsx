@@ -5,8 +5,8 @@ export function SiteHeader() {
     <header className="border-b hairline bg-background/80 backdrop-blur-sm sticky top-0 z-40">
       <div className="container-x flex items-center justify-between h-16">
         <Link to="/" className="flex items-center">
-          <span className="font-display text-lg tracking-tight text-foreground">
-            Data<span className="text-brand font-semibold">X</span>
+          <span className="font-display text-xl font-bold tracking-tight text-foreground">
+            Data<span className="text-brand">X</span>
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm">
