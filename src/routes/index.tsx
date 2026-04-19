@@ -45,6 +45,9 @@ function Home() {
           {/* Digital patient hologram — decorative background */}
           <PatientHologram />
           <div className="max-w-3xl relative">
+            <p className="text-xs md:text-sm text-muted-foreground/80 mb-3 italic">
+              Building the future of secure health data collaboration.
+            </p>
             <p className="label-eyebrow mb-5">Data Discovery Agents for Clinical Requests</p>
             <h1 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
               Search for clinical evidence.<br />
