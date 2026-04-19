@@ -41,7 +41,7 @@ export function SiteFooter() {
             © 2026 DataX UG (haftungsbeschränkt)
           </p>
           <p className="text-xs text-muted-foreground font-mono">
-            Made for hospital workflows.
+            Infrastructure for secure healthcare data collaboration
           </p>
         </div>
       </div>
