@@ -212,3 +212,7 @@
   0%, 100% { opacity: 0.4; transform: translateY(-50%) scale(1); }
   50%      { opacity: 0.65; transform: translateY(-50%) scale(1.05); }
 }
+@keyframes dx-line-drift {
+  0%, 100% { opacity: 0.08; }
+  50%      { opacity: 0.55; }
+}
