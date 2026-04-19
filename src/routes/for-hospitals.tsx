@@ -1,7 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WorkflowMock } from "@/components/mockups/WorkflowMock";
+import { ProductShot } from "@/components/ProductShot";
+import workspaceShot from "@/assets/product-workspace.png";
 
 export const Route = createFileRoute("/for-hospitals")({
   head: () => ({
@@ -68,7 +69,11 @@ function ForHospitals() {
             </div>
           </div>
           <div className="md:col-span-7">
-            <WorkflowMock />
+            <ProductShot
+              src={workspaceShot}
+              alt="DataX Discovery Workspace shared view of a cohort feasibility run."
+              caption="Discovery Workspace"
+            />
           </div>
         </div>
       </section>
