@@ -74,21 +74,18 @@ function Home() {
             <Card
               eyebrow="01 — Discovery Agent"
               title="Plain-language clinical questions, structured into discovery runs."
-              body="Intent into deterministic criteria — every step traceable."
               tone="brand"
               visual={<AgentMock />}
             />
             <Card
               eyebrow="02 — Discovery Workspace"
               title="Variants, feasibility and attrition in one canvas."
-              body="Compare cohort variants. See feasibility and attrition at a glance."
               tone="surface"
               visual={<WorkspaceMock />}
             />
             <Card
               eyebrow="03 — Value"
               title="Higher-quality requests. Less back-and-forth."
-              body="Ambiguity resolved up front. Validate on real data, expand when it works."
               tone="surface"
               visual={<ValueMock />}
             />
@@ -140,7 +137,7 @@ function Card({
 }: {
   eyebrow: string;
   title: string;
-  body: string;
+  body?: string;
   tone: "brand" | "surface";
   visual?: React.ReactNode;
 }) {
@@ -161,7 +158,7 @@ function Card({
         <h3 className="font-display text-lg md:text-xl leading-snug text-foreground">
           {title}
         </h3>
-        <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{body}</p>
+        {body && <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{body}</p>}
       </div>
       {visual && <div className="relative mt-auto pt-5">{visual}</div>}
     </article>
