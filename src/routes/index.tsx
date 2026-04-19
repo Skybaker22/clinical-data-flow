@@ -1,16 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { RequestIntakeMock } from "@/components/mockups/RequestIntakeMock";
+import { ProductShot } from "@/components/ProductShot";
+import workspaceShot from "@/assets/product-workspace.png";
+import agentShot from "@/assets/product-agent.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DataX — Structured workflows for governed clinical data requests" },
+      { title: "DataX — Agentic Discovery Workspace for clinical research" },
       {
         name: "description",
         content:
-          "DataX helps hospitals handle research and data access requests through a clear, auditable, review-ready workflow.",
+          "DataX is the agentic discovery workspace for hospital research teams. Describe a cohort in plain language, and the Discovery Agent scans connected clinical data sources to assess feasibility.",
       },
     ],
   }),
@@ -26,13 +28,14 @@ function Home() {
       <section className="border-b hairline">
         <div className="container-x pt-20 md:pt-28 pb-16 md:pb-24">
           <div className="max-w-3xl">
-            <p className="label-eyebrow mb-6">DataX · Hospital workflow software</p>
+            <p className="label-eyebrow mb-6">DataX · Agentic Discovery Workspace</p>
             <h1 className="font-display text-4xl md:text-6xl leading-[1.05] text-foreground">
-              Structured workflows for governed clinical data requests.
+              Describe a cohort. Let the agent do the discovery.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DataX helps hospitals handle research and data access requests through a clear,
-              auditable, review-ready workflow.
+              DataX is an agentic discovery workspace for hospital research teams. Ask a clinical
+              question in plain language — the Discovery Agent queries connected data sources,
+              evaluates feasibility, and verifies governance.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
@@ -46,70 +49,87 @@ function Home() {
           </div>
 
           <div className="mt-16 md:mt-20">
-            <RequestIntakeMock />
+            <ProductShot
+              src={workspaceShot}
+              alt="DataX Discovery Workspace showing a cohort feasibility assessment with variants, attrition funnel, and a research agent panel."
+              caption="Discovery Workspace · Feasibility & Attrition"
+            />
           </div>
         </div>
       </section>
 
-      {/* What the product helps with */}
+      {/* The two pillars */}
       <section className="container-x py-24 md:py-32">
         <div className="grid md:grid-cols-12 gap-10 mb-16">
-          <div className="md:col-span-4">
-            <p className="label-eyebrow mb-4">01 — Capabilities</p>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
-              What the product helps with.
+          <div className="md:col-span-6">
+            <p className="label-eyebrow mb-4">01 — The product</p>
+            <h2 className="font-display text-3xl md:text-5xl text-foreground leading-tight">
+              An Agentic Discovery Workspace, powered by a Discovery Agent.
             </h2>
+          </div>
+          <div className="md:col-span-5 md:col-start-8 self-end">
+            <p className="text-muted-foreground leading-relaxed">
+              Two surfaces, one workflow: a workspace for the researcher, and an agent that does
+              the structured work behind it.
+            </p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 border-t border-l hairline">
-          {[
-            { n: "01", t: "Request intake", d: "Capture unstructured requests in a clear format." },
-            { n: "02", t: "Feasibility preparation", d: "Turn requests into reviewable inputs." },
-            { n: "03", t: "Review coordination", d: "Support traceable stakeholder workflows." },
-            { n: "04", t: "Secure handoff", d: "Prepare requests for controlled downstream handling." },
-          ].map((b) => (
-            <div key={b.n} className="border-r border-b hairline p-8 min-h-[200px]">
-              <p className="font-mono text-[10px] text-muted-foreground tracking-wider mb-6">{b.n}</p>
-              <h3 className="font-display text-xl text-foreground mb-3">{b.t}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{b.d}</p>
-            </div>
-          ))}
+        {/* Pillar 1 — Discovery Agent */}
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center pt-8">
+          <div className="md:col-span-5">
+            <p className="label-eyebrow mb-4">Discovery Agent</p>
+            <h3 className="font-display text-2xl md:text-3xl text-foreground leading-tight">
+              Plain-language clinical questions, structured into discovery runs.
+            </h3>
+            <p className="mt-5 text-muted-foreground leading-relaxed">
+              Researchers describe a cohort in natural language. The agent turns it into
+              deterministic criteria, scans connected sources, evaluates feasibility, and checks
+              governance — every step traceable.
+            </p>
+            <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
+              <li className="flex gap-3"><span className="text-brand font-mono">→</span> Scan connected clinical data sources</li>
+              <li className="flex gap-3"><span className="text-brand font-mono">→</span> Evaluate feasibility, coverage and data quality</li>
+              <li className="flex gap-3"><span className="text-brand font-mono">→</span> Verify compliance, privacy and access policies</li>
+            </ul>
+          </div>
+          <div className="md:col-span-7">
+            <ProductShot
+              src={agentShot}
+              alt="DataX Discovery Agent intake screen asking 'What would you like to study?' with example cohort prompts and recent runs."
+              caption="Discovery Agent · Natural-language intake"
+            />
+          </div>
         </div>
       </section>
 
-      {/* How it works */}
+      {/* Pillar 2 — Workspace */}
       <section className="border-y hairline bg-surface/40">
         <div className="container-x py-24 md:py-32">
-          <div className="grid md:grid-cols-12 gap-10 mb-16">
-            <div className="md:col-span-4">
-              <p className="label-eyebrow mb-4">02 — Workflow</p>
-              <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
-                How it works.
-              </h2>
+          <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+            <div className="md:col-span-7 md:order-1 order-2">
+              <ProductShot
+                src={workspaceShot}
+                alt="DataX Discovery Workspace with cohort variants, feasibility score, missing information panel and attrition funnel."
+                caption="Discovery Workspace · Variants & Attrition"
+              />
             </div>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-px bg-border">
-            {[
-              { n: "1", t: "Intake", d: "Receive a new request." },
-              { n: "2", t: "Structure", d: "Organize the request into a usable format." },
-              { n: "3", t: "Review", d: "Coordinate the relevant internal checks." },
-              { n: "4", t: "Handoff", d: "Move forward in a traceable way." },
-            ].map((s, i, a) => (
-              <div key={s.n} className="bg-background p-8 relative">
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="w-7 h-7 border border-foreground rounded-full flex items-center justify-center font-mono text-xs">
-                    {s.n}
-                  </span>
-                  {i < a.length - 1 && (
-                    <div className="hidden md:block flex-1 border-t border-dashed hairline" />
-                  )}
-                </div>
-                <h3 className="font-display text-lg text-foreground mb-2">{s.t}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
-              </div>
-            ))}
+            <div className="md:col-span-5 md:order-2 order-1">
+              <p className="label-eyebrow mb-4">Discovery Workspace</p>
+              <h3 className="font-display text-2xl md:text-3xl text-foreground leading-tight">
+                One workspace for variants, feasibility, and attrition.
+              </h3>
+              <p className="mt-5 text-muted-foreground leading-relaxed">
+                Compare cohort variants side by side. See feasibility scores, attrition funnels,
+                and missing information at a glance — with the research agent always one panel
+                away.
+              </p>
+              <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
+                <li className="flex gap-3"><span className="text-brand font-mono">→</span> Cohort variants with deterministic criteria</li>
+                <li className="flex gap-3"><span className="text-brand font-mono">→</span> Feasibility score and attrition funnel</li>
+                <li className="flex gap-3"><span className="text-brand font-mono">→</span> Inline research agent for refinement</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -117,13 +137,13 @@ function Home() {
       {/* Built for */}
       <section className="container-x py-24 md:py-32">
         <div className="max-w-3xl">
-          <p className="label-eyebrow mb-6">03 — Audience</p>
+          <p className="label-eyebrow mb-6">02 — Audience</p>
           <h2 className="font-display text-3xl md:text-5xl text-foreground leading-tight">
-            Built for hospital research workflows.
+            Built for hospital research and data teams.
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Designed for teams handling recurring internal and external requests under governance
-            constraints.
+            University hospitals, medical informatics institutes, Data Integration Centres,
+            research IT and hospital data offices.
           </p>
         </div>
       </section>
@@ -134,7 +154,7 @@ function Home() {
           <div>
             <p className="label-eyebrow mb-4">Get in touch</p>
             <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight max-w-xl">
-              Interested in the product?
+              See the Discovery Agent on your data.
             </h2>
             <p className="mt-3 text-muted-foreground">Request a conversation.</p>
           </div>
