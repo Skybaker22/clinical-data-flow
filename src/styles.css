@@ -48,45 +48,42 @@
 :root {
   --radius: 4px;
 
-  /* Soft off-white paper */
-  --background: oklch(0.985 0.003 95);
-  --surface: oklch(0.975 0.004 95);
-  --surface-2: oklch(0.96 0.005 100);
+  /* Deep near-black backdrop */
+  --background: oklch(0.16 0.008 250);
+  --surface: oklch(0.20 0.009 250);
+  --surface-2: oklch(0.24 0.010 250);
 
-  /* Dark graphite */
-  --foreground: oklch(0.24 0.012 250);
-  --muted-foreground: oklch(0.5 0.012 250);
+  --foreground: oklch(0.97 0.005 95);
+  --muted-foreground: oklch(0.65 0.012 250);
 
-  --card: oklch(1 0 0);
+  --card: oklch(0.20 0.009 250);
   --card-foreground: var(--foreground);
-  --popover: oklch(1 0 0);
+  --popover: oklch(0.20 0.009 250);
   --popover-foreground: var(--foreground);
 
-  /* Muted blue-grey accent */
-  --primary: oklch(0.42 0.04 240);
-  --primary-foreground: oklch(0.985 0.003 95);
+  --primary: oklch(0.78 0.14 175);
+  --primary-foreground: oklch(0.18 0.02 200);
 
-  --secondary: oklch(0.94 0.008 240);
+  --secondary: oklch(0.26 0.010 250);
   --secondary-foreground: var(--foreground);
-  --muted: oklch(0.95 0.006 240);
+  --muted: oklch(0.24 0.010 250);
   --accent: oklch(0.55 0.055 240);
   --accent-foreground: oklch(0.985 0.003 95);
 
-  --destructive: oklch(0.55 0.18 27);
+  --destructive: oklch(0.6 0.18 27);
   --destructive-foreground: oklch(0.985 0.003 95);
 
-  --border: oklch(0.9 0.008 240);
-  --border-strong: oklch(0.82 0.012 240);
-  --hairline: oklch(0.88 0.008 240);
-  --input: oklch(0.9 0.008 240);
-  --ring: oklch(0.55 0.055 240);
+  --border: oklch(0.28 0.010 250);
+  --border-strong: oklch(0.38 0.012 250);
+  --hairline: oklch(0.26 0.010 250);
+  --input: oklch(0.28 0.010 250);
+  --ring: oklch(0.78 0.14 175);
 
-  /* DataX brand teal — used sparingly (logo accent) */
-  --brand: oklch(0.78 0.14 175);
+  --brand: oklch(0.82 0.15 175);
 
-  --status-active: oklch(0.55 0.08 230);
-  --status-pending: oklch(0.65 0.08 80);
-  --status-done: oklch(0.55 0.07 160);
+  --status-active: oklch(0.65 0.10 230);
+  --status-pending: oklch(0.75 0.10 80);
+  --status-done: oklch(0.65 0.09 160);
 }
 
 @layer base {
