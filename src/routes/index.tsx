@@ -166,20 +166,6 @@ function Card({
             "radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 90%)",
         }}
       />
-      {/* Dot raster overlay */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none opacity-[0.22] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "radial-gradient(color-mix(in oklab, var(--color-foreground) 45%, transparent) 1px, transparent 1px)",
-          backgroundSize: "8px 8px",
-          maskImage:
-            "linear-gradient(180deg, transparent 0%, black 30%, black 70%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(180deg, transparent 0%, black 30%, black 70%, transparent 100%)",
-        }}
-      />
       {/* Top hairline accent */}
       <div
         aria-hidden
@@ -191,13 +177,6 @@ function Card({
               : "linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-foreground) 18%, transparent), transparent)",
         }}
       />
-      {/* Corner crosshairs */}
-      {(["top-2 left-2", "top-2 right-2", "bottom-2 left-2", "bottom-2 right-2"] as const).map((pos) => (
-        <div key={pos} aria-hidden className={`absolute ${pos} w-2 h-2 pointer-events-none`}>
-          <span className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2" style={{ background: "color-mix(in oklab, var(--color-foreground) 30%, transparent)" }} />
-          <span className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2" style={{ background: "color-mix(in oklab, var(--color-foreground) 30%, transparent)" }} />
-        </div>
-      ))}
       {tone === "brand" && (
         <div
           aria-hidden
