@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { AgentMock, WorkspaceMock } from "@/components/ProductMocks";
+import productAgent from "@/assets/product-agent.png";
+import productWorkspace from "@/assets/product-workspace.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -67,27 +68,30 @@ function Home() {
             </div>
           </div>
 
-          {/* Product cards — Fastino-style, three across */}
-          <div className="mt-10 md:mt-14 grid md:grid-cols-3 gap-4">
+          {/* Product cards */}
+          <div className="mt-10 md:mt-14 grid md:grid-cols-2 gap-5">
             <Card
               eyebrow="01 — Discovery Agent"
               title="Plain-language clinical questions, structured into discovery runs."
               body="Natural-language intake. The agent turns intent into deterministic criteria, scans connected sources, and verifies governance — every step traceable."
               tone="brand"
-              visual={<AgentMock />}
+              image={productAgent}
+              imageAlt="DataX Discovery Agent — plain-language cohort intake"
             />
             <Card
               eyebrow="02 — Discovery Workspace"
               title="Variants, feasibility and attrition in one canvas."
               body="Compare cohort variants side by side. See feasibility scores, attrition funnels and missing information at a glance — research agent one panel away."
               tone="surface"
-              visual={<WorkspaceMock />}
+              image={productWorkspace}
+              imageAlt="DataX Discovery Workspace — variants, feasibility and attrition"
             />
             <Card
               eyebrow="03 — Value"
               title="Higher-quality requests. Less back-and-forth. Low-risk to start."
               body="Clinical intent captured precisely. Ambiguity resolved up front by the agent. Validate on real data, expand when it works."
               tone="surface"
+              className="md:col-span-2"
             />
           </div>
 
@@ -124,16 +128,22 @@ function Card({
   title,
   body,
   tone,
-  visual,
+  image,
+  imageAlt,
+  className,
 }: {
   eyebrow: string;
   title: string;
   body: string;
   tone: "brand" | "surface";
-  visual?: React.ReactNode;
+  image?: string;
+  imageAlt?: string;
+  className?: string;
 }) {
   return (
-    <article className="relative rounded-md border hairline p-6 bg-surface/60 backdrop-blur-sm overflow-hidden group transition-colors hover:bg-surface flex flex-col min-h-[300px]">
+    <article
+      className={`relative rounded-md border hairline p-6 md:p-7 bg-surface/60 backdrop-blur-sm overflow-hidden group transition-colors hover:bg-surface flex flex-col ${className ?? ""}`}
+    >
       {tone === "brand" && (
         <div
           aria-hidden
@@ -151,7 +161,16 @@ function Card({
         </h3>
         <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{body}</p>
       </div>
-      {visual && <div className="relative mt-5">{visual}</div>}
+      {image && (
+        <div className="relative mt-6 rounded-md border hairline overflow-hidden bg-background/60 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.6)]">
+          <img
+            src={image}
+            alt={imageAlt ?? ""}
+            loading="lazy"
+            className="block w-full h-auto"
+          />
+        </div>
+      )}
     </article>
   );
 }
