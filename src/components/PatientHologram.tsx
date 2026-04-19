@@ -1,3 +1,5 @@
+import type { ReactElement } from "react";
+
 /**
  * PatientHologram
  * A subtle, decorative SVG "digital patient" silhouette built from dots.
@@ -76,6 +78,42 @@ export function PatientHologram() {
             <stop offset="100%" stopColor="var(--color-brand)" stopOpacity="0.2" />
           </radialGradient>
         </defs>
+
+        {/* Skeleton/network: connect dots within a distance threshold */}
+        <g stroke="var(--color-brand)" strokeWidth={0.35} fill="none">
+          {(() => {
+            const MAX_DIST = 28; // connect only nearby dots
+            const lines: ReactElement[] = [];
+            for (let i = 0; i < DOTS.length; i++) {
+              for (let j = i + 1; j < DOTS.length; j++) {
+                const [x1, y1] = DOTS[i];
+                const [x2, y2] = DOTS[j];
+                const dx = x1 - x2;
+                const dy = y1 - y2;
+                const d = Math.sqrt(dx * dx + dy * dy);
+                if (d > MAX_DIST) continue;
+                // Closer pairs = brighter line
+                const baseOpacity = 0.18 + (1 - d / MAX_DIST) * 0.35;
+                const delay = (((i + j) * 91) % 6000) / 1000; // 0–6s
+                const dur = 5 + (((i * 17 + j * 23) % 4000) / 1000); // 5–9s
+                lines.push(
+                  <line
+                    key={`${i}-${j}`}
+                    x1={x1}
+                    y1={y1}
+                    x2={x2}
+                    y2={y2}
+                    style={{
+                      opacity: baseOpacity,
+                      animation: `dx-line-drift ${dur}s ease-in-out ${delay}s infinite`,
+                    }}
+                  />,
+                );
+              }
+            }
+            return lines;
+          })()}
+        </g>
 
         {DOTS.map(([x, y], i) => {
           // Stagger each dot's pulse for a shimmering, breathing effect
