@@ -159,6 +159,39 @@ function Home() {
         </div>
       </section>
 
+      {/* Value */}
+      <section id="value" className="border-t hairline bg-muted/30">
+        <div className="container-x py-24 md:py-32">
+          <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-5">
+              <p className="label-eyebrow mb-4">05 — Value</p>
+              <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
+                What teams gain.
+              </h2>
+            </div>
+            <ul className="md:col-span-7 grid gap-px bg-border border hairline self-start">
+              {[
+                ["Higher-quality, more structured requests", "Clinical intent captured precisely, ready for cohort logic."],
+                ["Less manual back-and-forth clarification", "The agent resolves ambiguity up front instead of by email."],
+                ["Low-risk value test", "Start small, validate on real data, expand when it works."],
+              ].map(([title, desc]) => (
+                <li key={title} className="bg-background p-6 flex gap-4 items-start">
+                  <span
+                    aria-hidden
+                    className="mt-1 inline-block h-2.5 w-2.5 rounded-full shrink-0"
+                    style={{ background: "var(--color-brand)" }}
+                  />
+                  <div>
+                    <p className="font-display text-lg text-foreground leading-snug">{title}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section id="contact" className="border-t hairline">
         <div className="container-x py-20 md:py-24 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
