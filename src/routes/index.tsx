@@ -67,30 +67,28 @@ function Home() {
             </div>
           </div>
 
-          {/* Product cards */}
-          <div className="mt-10 md:mt-14 grid md:grid-cols-2 gap-5">
+          {/* Product cards — three across */}
+          <div className="mt-10 md:mt-14 grid md:grid-cols-3 gap-4">
             <Card
               eyebrow="01 — Discovery Agent"
               title="Plain-language clinical questions, structured into discovery runs."
               body="Natural-language intake. The agent turns intent into deterministic criteria, scans connected sources, and verifies governance — every step traceable."
               tone="brand"
-              image={productAgent}
-              imageAlt="DataX Discovery Agent — plain-language cohort intake"
+              visual={<AgentMock />}
             />
             <Card
               eyebrow="02 — Discovery Workspace"
               title="Variants, feasibility and attrition in one canvas."
               body="Compare cohort variants side by side. See feasibility scores, attrition funnels and missing information at a glance — research agent one panel away."
               tone="surface"
-              image={productWorkspace}
-              imageAlt="DataX Discovery Workspace — variants, feasibility and attrition"
+              visual={<WorkspaceMock />}
             />
             <Card
               eyebrow="03 — Value"
               title="Higher-quality requests. Less back-and-forth. Low-risk to start."
               body="Clinical intent captured precisely. Ambiguity resolved up front by the agent. Validate on real data, expand when it works."
               tone="surface"
-              className="md:col-span-2"
+              visual={<ValueMock />}
             />
           </div>
 
