@@ -137,7 +137,7 @@ function Card({
   visual?: React.ReactNode;
 }) {
   return (
-    <article className="relative rounded-md border hairline p-6 bg-surface/60 backdrop-blur-sm overflow-hidden group transition-colors hover:bg-surface flex flex-col min-h-[320px]">
+    <article className="relative rounded-md border hairline p-6 bg-surface/60 backdrop-blur-sm overflow-hidden group transition-colors hover:bg-surface flex flex-col min-h-[420px]">
       {tone === "brand" && (
         <div
           aria-hidden
