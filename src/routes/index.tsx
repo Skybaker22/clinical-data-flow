@@ -187,18 +187,8 @@ function Card({
           }}
         />
       )}
-      <div className="relative flex items-start justify-between gap-3">
+      <div className="relative flex items-start gap-3">
         <p className="label-eyebrow">{eyebrow}</p>
-        <span
-          aria-hidden
-          className="inline-block w-1.5 h-1.5 rounded-full mt-1"
-          style={{
-            background:
-              tone === "brand"
-                ? "var(--color-brand)"
-                : "color-mix(in oklab, var(--color-foreground) 25%, transparent)",
-          }}
-        />
       </div>
       <div className="relative mt-5">
         <h3 className="font-display text-lg md:text-xl leading-snug text-foreground">
