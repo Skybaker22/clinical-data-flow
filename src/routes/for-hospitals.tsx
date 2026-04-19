@@ -96,9 +96,12 @@ function ForHospitals() {
           <h2 className="font-display text-3xl md:text-4xl text-foreground max-w-xl leading-tight">
             See it applied to your workflow.
           </h2>
-          <Link to="/request-demo" className="btn-primary self-start md:self-auto">
+          <a
+            href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
+            className="btn-brand self-start md:self-auto"
+          >
             Request Demo
-          </Link>
+          </a>
         </div>
       </section>
 
