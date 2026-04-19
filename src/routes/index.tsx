@@ -51,9 +51,8 @@ function Home() {
               <span className="text-muted-foreground">Let the agent do the discovery.</span>
             </h1>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              An agentic discovery workspace for hospital research teams. Ask in plain
-              language — the Discovery Agent queries connected sources, evaluates
-              feasibility, and verifies governance.
+              DataX is a founder-led research company working on the frontier of
+              healthcare AI — building agentic systems for secure clinical data discovery.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-6">
               <a
