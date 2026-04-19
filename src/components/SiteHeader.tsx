@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 
 export function SiteHeader() {
   return (
-    <header className="border-b hairline bg-background/80 backdrop-blur-sm sticky top-0 z-40">
+    <header className="relative z-10">
       <div className="container-x flex items-center justify-between h-16">
         <Link to="/" className="flex items-center">
           <span className="font-display text-xl font-bold tracking-tight text-foreground">
@@ -10,18 +10,12 @@ export function SiteHeader() {
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm">
-          <a href="/#agent" className="text-muted-foreground hover:text-foreground transition-colors">
-            Agent
-          </a>
-          <a href="/#workspace" className="text-muted-foreground hover:text-foreground transition-colors">
-            Workspace
-          </a>
-          <a href="/#reasoning" className="text-muted-foreground hover:text-foreground transition-colors">
-            How it reasons
-          </a>
-          <a href="/#audience" className="text-muted-foreground hover:text-foreground transition-colors">
-            For hospitals
-          </a>
+          <Link to="/impressum" className="text-muted-foreground hover:text-foreground transition-colors">
+            Impressum
+          </Link>
+          <Link to="/datenschutz" className="text-muted-foreground hover:text-foreground transition-colors">
+            Datenschutz
+          </Link>
         </nav>
         <a
           href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
