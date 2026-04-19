@@ -142,19 +142,51 @@ function Card({
   visual?: React.ReactNode;
 }) {
   return (
-    <article className="relative rounded-md border hairline p-6 bg-surface/60 backdrop-blur-sm overflow-hidden group transition-colors hover:bg-surface flex flex-col min-h-[420px]">
+    <article
+      className="relative rounded-md p-6 overflow-hidden group flex flex-col min-h-[420px] transition-all duration-300 hover:-translate-y-0.5"
+      style={{
+        background:
+          "linear-gradient(180deg, color-mix(in oklab, var(--color-background) 92%, black) 0%, color-mix(in oklab, var(--color-background) 96%, black) 100%)",
+        border: "1px solid var(--color-hairline)",
+        boxShadow:
+          "inset 0 1px 0 color-mix(in oklab, white 4%, transparent), 0 1px 0 color-mix(in oklab, black 40%, transparent)",
+      }}
+    >
+      {/* Top hairline accent */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-px"
+        style={{
+          background:
+            tone === "brand"
+              ? "linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-brand) 70%, transparent), transparent)"
+              : "linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-foreground) 18%, transparent), transparent)",
+        }}
+      />
       {tone === "brand" && (
         <div
           aria-hidden
-          className="absolute inset-0 opacity-40 pointer-events-none"
+          className="absolute -top-24 -right-16 w-64 h-64 rounded-full pointer-events-none opacity-50 blur-3xl"
           style={{
             background:
-              "radial-gradient(80% 60% at 0% 0%, color-mix(in oklab, var(--color-brand) 22%, transparent) 0%, transparent 60%)",
+              "radial-gradient(circle, color-mix(in oklab, var(--color-brand) 30%, transparent) 0%, transparent 70%)",
           }}
         />
       )}
-      <div className="relative">
-        <p className="label-eyebrow mb-4">{eyebrow}</p>
+      <div className="relative flex items-start justify-between gap-3">
+        <p className="label-eyebrow">{eyebrow}</p>
+        <span
+          aria-hidden
+          className="inline-block w-1.5 h-1.5 rounded-full mt-1"
+          style={{
+            background:
+              tone === "brand"
+                ? "var(--color-brand)"
+                : "color-mix(in oklab, var(--color-foreground) 25%, transparent)",
+          }}
+        />
+      </div>
+      <div className="relative mt-5">
         <h3 className="font-display text-lg md:text-xl leading-snug text-foreground">
           {title}
         </h3>
