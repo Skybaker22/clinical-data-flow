@@ -93,7 +93,7 @@ function HomeDe() {
             />
             <Card
               eyebrow="02 — Discovery Workspace"
-              title="Varianten, Machbarkeit und Attrition auf einer Oberfläche."
+              title="Varianten, Machbarkeit und Fallzahlentwicklung auf einer Oberfläche."
               pattern="dots"
               visual={<WorkspaceMock lang="de" />}
             />
