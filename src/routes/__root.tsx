@@ -1,7 +1,9 @@
-import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { CookieBanner } from "@/components/CookieBanner";
+
+const GERMAN_ROUTES = ["/agb", "/datenschutz", "/impressum", "/cookie-hinweise"];
 
 const SITE_URL = "https://datax.me";
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
@@ -85,9 +87,11 @@ function NotFound() {
 }
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const lang = GERMAN_ROUTES.some((p) => pathname === p || pathname.startsWith(p + "/")) ? "de" : "en";
   const themeScript = `(function(){try{var t=localStorage.getItem('datax-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('dark');}})();`;
   return (
-    <html lang="en" className="dark">
+    <html lang={lang} className="dark" suppressHydrationWarning>
       <head>
         <HeadContent />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
