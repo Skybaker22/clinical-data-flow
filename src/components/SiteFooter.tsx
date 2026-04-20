@@ -5,9 +5,9 @@ const COPY = {
     tagline: "Infrastructure for secure healthcare data collaboration",
     site: "Site",
     siteLinks: [
-      { href: "/#agent", label: "Agent" },
-      { href: "/#workspace", label: "Workspace" },
-      { href: "/#audience", label: "For hospitals" },
+      { href: "/en#agent", label: "Agent" },
+      { href: "/en#workspace", label: "Workspace" },
+      { href: "/en#audience", label: "For hospitals" },
     ],
     legal: "Legal",
   },
@@ -15,9 +15,9 @@ const COPY = {
     tagline: "Infrastruktur für sichere Zusammenarbeit mit Gesundheitsdaten",
     site: "Seite",
     siteLinks: [
-      { href: "/de#agent", label: "Agent" },
-      { href: "/de#workspace", label: "Workspace" },
-      { href: "/de#audience", label: "Für Krankenhäuser" },
+      { href: "/#agent", label: "Agent" },
+      { href: "/#workspace", label: "Workspace" },
+      { href: "/#audience", label: "Für Krankenhäuser" },
     ],
     legal: "Rechtliches",
   },
@@ -25,13 +25,8 @@ const COPY = {
 
 export function SiteFooter() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isGerman =
-    pathname === "/de" ||
-    pathname.startsWith("/de/") ||
-    ["/agb", "/datenschutz", "/impressum", "/cookie-hinweise"].some(
-      (p) => pathname === p || pathname.startsWith(p + "/"),
-    );
-  const t = isGerman ? COPY.de : COPY.en;
+  const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
+  const t = isEnglish ? COPY.en : COPY.de;
 
   return (
     <footer className="border-t hairline mt-32">

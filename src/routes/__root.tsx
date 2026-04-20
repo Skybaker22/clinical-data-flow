@@ -3,7 +3,7 @@ import { Outlet, createRootRoute, HeadContent, Scripts, useRouterState } from "@
 import appCss from "../styles.css?url";
 import { CookieBanner } from "@/components/CookieBanner";
 
-const GERMAN_ROUTES = ["/agb", "/datenschutz", "/impressum", "/cookie-hinweise", "/de"];
+const ENGLISH_ROUTES = ["/en"];
 
 const SITE_URL = "https://datax.me";
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
@@ -88,7 +88,7 @@ function NotFound() {
 
 function RootShell({ children }: { children: React.ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const lang = GERMAN_ROUTES.some((p) => pathname === p || pathname.startsWith(p + "/")) ? "de" : "en";
+  const lang = ENGLISH_ROUTES.some((p) => pathname === p || pathname.startsWith(p + "/")) ? "en" : "de";
   const themeScript = `(function(){try{var t=localStorage.getItem('datax-theme');if(t!=='light'&&t!=='dark'){t='light';}document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('light');}})();`;
   return (
     <html lang={lang} className="light" suppressHydrationWarning>
