@@ -1,6 +1,38 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
+
+const COPY = {
+  en: {
+    tagline: "Infrastructure for secure healthcare data collaboration",
+    site: "Site",
+    siteLinks: [
+      { href: "/#agent", label: "Agent" },
+      { href: "/#workspace", label: "Workspace" },
+      { href: "/#audience", label: "For hospitals" },
+    ],
+    legal: "Legal",
+  },
+  de: {
+    tagline: "Infrastruktur für sichere Zusammenarbeit mit Gesundheitsdaten",
+    site: "Seite",
+    siteLinks: [
+      { href: "/de#agent", label: "Agent" },
+      { href: "/de#workspace", label: "Workspace" },
+      { href: "/de#audience", label: "Für Krankenhäuser" },
+    ],
+    legal: "Rechtliches",
+  },
+} as const;
 
 export function SiteFooter() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isGerman =
+    pathname === "/de" ||
+    pathname.startsWith("/de/") ||
+    ["/agb", "/datenschutz", "/impressum", "/cookie-hinweise"].some(
+      (p) => pathname === p || pathname.startsWith(p + "/"),
+    );
+  const t = isGerman ? COPY.de : COPY.en;
+
   return (
     <footer className="border-t hairline mt-32">
       <div className="container-x py-16">
@@ -12,21 +44,25 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              Infrastructure for secure healthcare data collaboration
+              {t.tagline}
             </p>
           </div>
 
           <div className="md:col-span-3">
-            <p className="label-eyebrow mb-4">Site</p>
+            <p className="label-eyebrow mb-4">{t.site}</p>
             <ul className="space-y-3 text-sm">
-              <li><a href="/#agent" className="text-muted-foreground hover:text-foreground">Agent</a></li>
-              <li><a href="/#workspace" className="text-muted-foreground hover:text-foreground">Workspace</a></li>
-              <li><a href="/#audience" className="text-muted-foreground hover:text-foreground">For hospitals</a></li>
+              {t.siteLinks.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className="text-muted-foreground hover:text-foreground">
+                    {l.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="md:col-span-3">
-            <p className="label-eyebrow mb-4">Legal</p>
+            <p className="label-eyebrow mb-4">{t.legal}</p>
             <ul className="space-y-3 text-sm">
               <li><Link to="/impressum" className="text-muted-foreground hover:text-foreground">Impressum</Link></li>
               <li><Link to="/datenschutz" className="text-muted-foreground hover:text-foreground">Datenschutz</Link></li>
