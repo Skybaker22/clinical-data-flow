@@ -237,16 +237,16 @@ const VALUE_COPY = {
     finalValue: "168 patients · 86% attrition",
   },
   de: {
-    title: "Kohorten-Attrition-Funnel",
+    title: "Kohorten-Eingrenzung",
     stagesLabel: "4 Stufen",
     stages: [
-      { label: "Datensatzpopulation", w: 100, n: "1.193", delay: "0.1s", drop: "" },
+      { label: "Ausgangspopulation", w: 100, n: "1.193", delay: "0.1s", drop: "" },
       { label: "Alter ≥ 65", w: 72, n: "859", delay: "0.5s", drop: "−28 %" },
-      { label: "Diagnose: Diabetes", w: 38, n: "452", delay: "0.9s", drop: "−47 %" },
+      { label: "Mit Diabetesdiagnose", w: 38, n: "452", delay: "0.9s", drop: "−47 %" },
       { label: "HbA1c > 7,0", w: 14, n: "168", delay: "1.3s", drop: "−63 %" },
     ],
     finalLabel: "Finale Kohorte",
-    finalValue: "168 Patient:innen · 86 % Attrition",
+    finalValue: "168 Patient:innen · 86 % Reduktion",
   },
 } as const;
 
