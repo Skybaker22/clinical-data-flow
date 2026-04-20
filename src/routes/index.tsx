@@ -50,9 +50,9 @@ function Home() {
               <span className="text-muted-foreground">Let the agent do the discovery.</span>
             </h1>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DataX helps hospitals answer clinical research questions by finding
-              matching patients, extracting relevant records, and creating
-              de-identified datasets — all inside the hospital's own infrastructure.
+              DataX helps hospitals find the right patients, pull the right
+              records, and prepare privacy-preserving data for clinical
+              research — without patient data leaving the hospital.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-6">
               <a
