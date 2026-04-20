@@ -14,11 +14,15 @@ export const Route = createFileRoute("/impressum")({
 function Impressum() {
   return (
     <LegalPage eyebrow="Legal" title="Impressum.">
-      <Section heading="Angaben gemäß § 5 TMG">
-        <p>DataX UG (haftungsbeschränkt)</p>
-        <p>Lindenstrasse 22</p>
+      <Section heading="Angaben gemäß §§ 5, 6 DDG">
+        <p>DataX UG (haftungsbeschränkt) i.G.</p>
+        <p>Lindenstraße 22</p>
         <p>60325 Frankfurt am Main</p>
         <p>Deutschland</p>
+      </Section>
+
+      <Section heading="Vertreten durch">
+        <p>Timo Himmelsbach</p>
       </Section>
 
       <Section heading="Kontakt">
@@ -30,12 +34,11 @@ function Impressum() {
         </p>
       </Section>
 
-      <Section heading="Vertretungsberechtigte Geschäftsführung">
-        <p>Die Geschäftsführung ist über die oben genannte E-Mail-Adresse erreichbar.</p>
-      </Section>
-
       <Section heading="Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV">
-        <p>DataX UG (haftungsbeschränkt)</p>
+        <p>Timo Himmelsbach</p>
+        <p>Lindenstraße 22</p>
+        <p>60325 Frankfurt am Main</p>
+        <p>Deutschland</p>
       </Section>
 
       <Section heading="EU-Streitschlichtung">
