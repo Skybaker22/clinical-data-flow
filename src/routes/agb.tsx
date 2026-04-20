@@ -6,7 +6,11 @@ export const Route = createFileRoute("/agb")({
     meta: [
       { title: "AGB — DataX" },
       { name: "description", content: "Allgemeine Geschäftsbedingungen der DataX UG (haftungsbeschränkt)." },
+      { property: "og:title", content: "AGB — DataX" },
+      { property: "og:description", content: "Allgemeine Geschäftsbedingungen der DataX UG (haftungsbeschränkt)." },
+      { property: "og:url", content: "https://datax.me/agb" },
     ],
+    links: [{ rel: "canonical", href: "https://datax.me/agb" }],
   }),
   component: AGB,
 });

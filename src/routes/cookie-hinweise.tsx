@@ -6,7 +6,11 @@ export const Route = createFileRoute("/cookie-hinweise")({
     meta: [
       { title: "Cookie-Hinweise — DataX" },
       { name: "description", content: "Informationen zur Verwendung von Cookies auf datax.me." },
+      { property: "og:title", content: "Cookie-Hinweise — DataX" },
+      { property: "og:description", content: "Informationen zur Verwendung von Cookies auf datax.me." },
+      { property: "og:url", content: "https://datax.me/cookie-hinweise" },
     ],
+    links: [{ rel: "canonical", href: "https://datax.me/cookie-hinweise" }],
   }),
   component: CookieHinweise,
 });
