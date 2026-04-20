@@ -112,7 +112,7 @@ function HomeDe() {
                 "Universitätskliniken",
                 "Institute für Medizinische Informatik",
                 "Datenintegrationszentren",
-                "Datenstellen in Krankenhäusern",
+                "IT in Krankenhäusern",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
                   <span
