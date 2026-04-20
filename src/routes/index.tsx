@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { AgentMock, WorkspaceMock, ValueMock } from "@/components/ProductMocks";
-import { PatientHologram } from "@/components/PatientHologram";
+import { RequestObjectHologram } from "@/components/RequestObjectHologram";
 
 export const Route = createFileRoute("/")({
   head: () => ({
