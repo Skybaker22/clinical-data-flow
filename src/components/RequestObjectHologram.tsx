@@ -13,6 +13,40 @@ import type { ReactElement } from "react";
  *  - Muted blue-grey accents, no rainbow / cyberpunk
  *  - Restrained motion (gentle float + subtle status pulse only)
  */
+function Connector({ index, delay }: { index: number; delay: string }) {
+  const top = (index + 1) * 78 - 18;
+  const z = -(index * 60 + 30);
+  return (
+    <div
+      aria-hidden
+      className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+      style={{
+        top: `${top}px`,
+        height: "36px",
+        width: "1px",
+        transform: `translate3d(-50%, 0, ${z}px)`,
+        background:
+          "linear-gradient(to bottom, transparent 0%, color-mix(in oklab, var(--color-foreground) 22%, transparent) 30%, color-mix(in oklab, var(--color-foreground) 22%, transparent) 70%, transparent 100%)",
+        overflow: "hidden",
+      }}
+    >
+      <span
+        className="absolute left-1/2 -translate-x-1/2 block"
+        style={{
+          top: 0,
+          width: "3px",
+          height: "8px",
+          borderRadius: "2px",
+          background:
+            "linear-gradient(to bottom, transparent, var(--color-brand), transparent)",
+          filter: "blur(0.4px)",
+          animation: `ROH-flow 3.4s ease-in-out ${delay} infinite`,
+        }}
+      />
+    </div>
+  );
+}
+
 export function RequestObjectHologram(): ReactElement {
   return (
     <div
@@ -312,45 +346,3 @@ function Window() {
   );
 }
 
-/**
- * Connector — subtle vertical line bridging two adjacent layers,
- * with a slow traveling pulse to imply transformation flow.
- * `index` is the gap index (0 = between layer 1 and 2, etc.).
- * Layers are 78px apart and ~58px tall, so the gap sits at:
- *   top = (index + 1) * 78 - 20  (overlaps slightly into both layers)
- */
-function Connector({ index, delay }: { index: number; delay: string }) {
-  const top = (index + 1) * 78 - 18;
-  // Push connectors slightly back so they sit between the glass plates
-  const z = -(index * 60 + 30);
-  return (
-    <div
-      aria-hidden
-      className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-      style={{
-        top: `${top}px`,
-        height: "36px",
-        width: "1px",
-        transform: `translate3d(-50%, 0, ${z}px)`,
-        background:
-          "linear-gradient(to bottom, transparent 0%, color-mix(in oklab, var(--color-foreground) 22%, transparent) 30%, color-mix(in oklab, var(--color-foreground) 22%, transparent) 70%, transparent 100%)",
-        overflow: "hidden",
-      }}
-    >
-      {/* Traveling pulse */}
-      <span
-        className="absolute left-1/2 -translate-x-1/2 block"
-        style={{
-          top: 0,
-          width: "3px",
-          height: "8px",
-          borderRadius: "2px",
-          background:
-            "linear-gradient(to bottom, transparent, var(--color-brand), transparent)",
-          filter: "blur(0.4px)",
-          animation: `ROH-flow 3.4s ease-in-out ${delay} infinite`,
-        }}
-      />
-    </div>
-  );
-}
