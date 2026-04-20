@@ -1,6 +1,7 @@
 import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { CookieBanner } from "@/components/CookieBanner";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -32,7 +33,12 @@ export const Route = createRootRoute({
     ],
   }),
   shellComponent: RootShell,
-  component: () => <Outlet />,
+  component: () => (
+    <>
+      <Outlet />
+      <CookieBanner />
+    </>
+  ),
   notFoundComponent: NotFound,
 });
 
