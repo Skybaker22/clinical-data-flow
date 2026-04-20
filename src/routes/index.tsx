@@ -61,11 +61,6 @@ function Home() {
               >
                 Request Demo
               </a>
-              <div className="flex items-center gap-8 text-sm">
-                <Stat value="2" label="core agents" />
-                <Stat value="3" label="reasoning layers" />
-                <Stat value="100%" label="traceable" />
-              </div>
             </div>
           </div>
 
