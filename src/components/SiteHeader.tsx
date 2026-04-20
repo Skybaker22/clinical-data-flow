@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function SiteHeader() {
   return (
@@ -9,12 +10,15 @@ export function SiteHeader() {
             Data<span className="text-brand">X</span>
           </span>
         </Link>
-        <a
-          href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
-          className="btn-brand text-xs px-4 py-2"
-        >
-          Request Demo
-        </a>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <a
+            href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
+            className="btn-brand text-xs px-4 py-2"
+          >
+            Request Demo
+          </a>
+        </div>
       </div>
     </header>
   );
