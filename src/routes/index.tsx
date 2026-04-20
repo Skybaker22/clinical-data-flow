@@ -195,7 +195,7 @@ function Card({
         </h3>
         {body && <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{body}</p>}
       </div>
-      {visual && <div className="relative mt-auto pt-5">{visual}</div>}
+      {visual && <div className="relative mt-auto pt-5 flex">{visual}</div>}
     </article>
   );
 }
