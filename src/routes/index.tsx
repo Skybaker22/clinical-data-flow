@@ -114,15 +114,6 @@ function Home() {
   );
 }
 
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="flex items-baseline gap-2">
-      <span className="font-display text-foreground text-lg">{value}</span>
-      <span className="text-muted-foreground text-xs uppercase tracking-wider">{label}</span>
-    </div>
-  );
-}
-
 function Card({
   eyebrow,
   title,
