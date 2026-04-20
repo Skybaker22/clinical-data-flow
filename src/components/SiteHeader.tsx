@@ -22,6 +22,14 @@ export function SiteHeader() {
           <LanguageToggle />
           <ThemeToggle />
           <a
+            href="https://calendly.com/info-datax/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost text-xs px-4 py-2 hidden sm:inline-flex"
+          >
+            {isGerman ? "Mit Gründern sprechen" : "Talk to founders"}
+          </a>
+          <a
             href={`mailto:info@datax.me?subject=${ctaSubject}`}
             className="btn-brand text-xs px-4 py-2"
           >

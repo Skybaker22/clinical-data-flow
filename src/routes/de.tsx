@@ -62,12 +62,20 @@ function HomeDe() {
                 Auswertungen für die klinische Forschung vorzubereiten — ohne dass
                 Patientendaten das Krankenhaus verlassen.
               </p>
-              <div className="mt-7 flex flex-wrap items-center gap-6">
+              <div className="mt-7 flex flex-wrap items-center gap-3">
                 <a
                   href="mailto:info@datax.me?subject=Demo-Anfrage%20%E2%80%94%20DataX"
                   className="btn-brand"
                 >
                   Demo anfragen
+                </a>
+                <a
+                  href="https://calendly.com/info-datax/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
+                >
+                  Mit Gründern sprechen
                 </a>
               </div>
             </div>
