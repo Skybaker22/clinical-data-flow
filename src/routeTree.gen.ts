@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ImpressumRouteImport } from './routes/impressum'
-import { Route as DeRouteImport } from './routes/de'
+import { Route as EnRouteImport } from './routes/en'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as CookieHinweiseRouteImport } from './routes/cookie-hinweise'
 import { Route as AgbRouteImport } from './routes/agb'
@@ -21,9 +21,9 @@ const ImpressumRoute = ImpressumRouteImport.update({
   path: '/impressum',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DeRoute = DeRouteImport.update({
-  id: '/de',
-  path: '/de',
+const EnRoute = EnRouteImport.update({
+  id: '/en',
+  path: '/en',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatenschutzRoute = DatenschutzRouteImport.update({
@@ -52,7 +52,7 @@ export interface FileRoutesByFullPath {
   '/agb': typeof AgbRoute
   '/cookie-hinweise': typeof CookieHinweiseRoute
   '/datenschutz': typeof DatenschutzRoute
-  '/de': typeof DeRoute
+  '/en': typeof EnRoute
   '/impressum': typeof ImpressumRoute
 }
 export interface FileRoutesByTo {
@@ -60,7 +60,7 @@ export interface FileRoutesByTo {
   '/agb': typeof AgbRoute
   '/cookie-hinweise': typeof CookieHinweiseRoute
   '/datenschutz': typeof DatenschutzRoute
-  '/de': typeof DeRoute
+  '/en': typeof EnRoute
   '/impressum': typeof ImpressumRoute
 }
 export interface FileRoutesById {
@@ -69,7 +69,7 @@ export interface FileRoutesById {
   '/agb': typeof AgbRoute
   '/cookie-hinweise': typeof CookieHinweiseRoute
   '/datenschutz': typeof DatenschutzRoute
-  '/de': typeof DeRoute
+  '/en': typeof EnRoute
   '/impressum': typeof ImpressumRoute
 }
 export interface FileRouteTypes {
@@ -79,17 +79,17 @@ export interface FileRouteTypes {
     | '/agb'
     | '/cookie-hinweise'
     | '/datenschutz'
-    | '/de'
+    | '/en'
     | '/impressum'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/agb' | '/cookie-hinweise' | '/datenschutz' | '/de' | '/impressum'
+  to: '/' | '/agb' | '/cookie-hinweise' | '/datenschutz' | '/en' | '/impressum'
   id:
     | '__root__'
     | '/'
     | '/agb'
     | '/cookie-hinweise'
     | '/datenschutz'
-    | '/de'
+    | '/en'
     | '/impressum'
   fileRoutesById: FileRoutesById
 }
@@ -98,7 +98,7 @@ export interface RootRouteChildren {
   AgbRoute: typeof AgbRoute
   CookieHinweiseRoute: typeof CookieHinweiseRoute
   DatenschutzRoute: typeof DatenschutzRoute
-  DeRoute: typeof DeRoute
+  EnRoute: typeof EnRoute
   ImpressumRoute: typeof ImpressumRoute
 }
 
@@ -111,11 +111,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImpressumRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/de': {
-      id: '/de'
-      path: '/de'
-      fullPath: '/de'
-      preLoaderRoute: typeof DeRouteImport
+    '/en': {
+      id: '/en'
+      path: '/en'
+      fullPath: '/en'
+      preLoaderRoute: typeof EnRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/datenschutz': {
@@ -154,7 +154,7 @@ const rootRouteChildren: RootRouteChildren = {
   AgbRoute: AgbRoute,
   CookieHinweiseRoute: CookieHinweiseRoute,
   DatenschutzRoute: DatenschutzRoute,
-  DeRoute: DeRoute,
+  EnRoute: EnRoute,
   ImpressumRoute: ImpressumRoute,
 }
 export const routeTree = rootRouteImport

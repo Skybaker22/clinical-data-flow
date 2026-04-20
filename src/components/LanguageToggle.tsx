@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 
 export function LanguageToggle() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isGerman = pathname === "/de" || pathname.startsWith("/de/");
+  const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
 
   return (
     <div
@@ -13,26 +13,26 @@ export function LanguageToggle() {
       <Link
         to="/"
         className={`px-2.5 py-1.5 transition-colors ${
-          !isGerman
+          !isEnglish
             ? "bg-foreground text-background"
             : "text-muted-foreground hover:text-foreground"
         }`}
-        aria-current={!isGerman ? "page" : undefined}
-        hrefLang="en"
-      >
-        EN
-      </Link>
-      <Link
-        to="/de"
-        className={`px-2.5 py-1.5 transition-colors ${
-          isGerman
-            ? "bg-foreground text-background"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-        aria-current={isGerman ? "page" : undefined}
+        aria-current={!isEnglish ? "page" : undefined}
         hrefLang="de"
       >
         DE
+      </Link>
+      <Link
+        to="/en"
+        className={`px-2.5 py-1.5 transition-colors ${
+          isEnglish
+            ? "bg-foreground text-background"
+            : "text-muted-foreground hover:text-foreground"
+        }`}
+        aria-current={isEnglish ? "page" : undefined}
+        hrefLang="en"
+      >
+        EN
       </Link>
     </div>
   );

@@ -4,7 +4,8 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 
 export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isGerman = pathname === "/de" || pathname.startsWith("/de/");
+  const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
+  const isGerman = !isEnglish;
   const ctaLabel = isGerman ? "Demo anfragen" : "Request Demo";
   const ctaSubject = isGerman
     ? "Demo-Anfrage%20%E2%80%94%20DataX"
@@ -13,7 +14,7 @@ export function SiteHeader() {
   return (
     <header className="relative z-10">
       <div className="container-x flex items-center justify-between h-16">
-        <Link to={isGerman ? "/de" : "/"} className="flex items-center">
+        <Link to={isEnglish ? "/en" : "/"} className="flex items-center">
           <span className="font-display text-xl font-bold tracking-tight text-foreground">
             Data<span className="text-brand">X</span>
           </span>
