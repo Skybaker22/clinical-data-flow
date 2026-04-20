@@ -118,55 +118,56 @@ function Card({
   eyebrow,
   title,
   body,
-  tone,
+  pattern,
   visual,
 }: {
   eyebrow: string;
   title: string;
   body?: string;
-  tone: "teal" | "blue" | "amber";
+  pattern: "grid" | "dots" | "diagonal";
   visual?: React.ReactNode;
 }) {
-  const toneConfig = {
-    teal: {
-      hue: "var(--color-brand)",
-      bg: "linear-gradient(160deg, color-mix(in oklab, var(--color-brand) 14%, var(--color-background)) 0%, color-mix(in oklab, var(--color-brand) 4%, var(--color-background)) 60%, var(--color-background) 100%)",
-      border: "color-mix(in oklab, var(--color-brand) 30%, var(--color-hairline))",
-    },
-    blue: {
-      hue: "var(--color-status-active)",
-      bg: "linear-gradient(160deg, color-mix(in oklab, var(--color-status-active) 16%, var(--color-background)) 0%, color-mix(in oklab, var(--color-status-active) 5%, var(--color-background)) 60%, var(--color-background) 100%)",
-      border: "color-mix(in oklab, var(--color-status-active) 32%, var(--color-hairline))",
-    },
-    amber: {
-      hue: "var(--color-status-pending)",
-      bg: "linear-gradient(160deg, color-mix(in oklab, var(--color-status-pending) 14%, var(--color-background)) 0%, color-mix(in oklab, var(--color-status-pending) 4%, var(--color-background)) 60%, var(--color-background) 100%)",
-      border: "color-mix(in oklab, var(--color-status-pending) 28%, var(--color-hairline))",
-    },
-  }[tone];
+  const patternStyle: React.CSSProperties = (() => {
+    const line = "color-mix(in oklab, var(--color-foreground) 12%, transparent)";
+    const dot = "color-mix(in oklab, var(--color-foreground) 16%, transparent)";
+    if (pattern === "grid") {
+      return {
+        backgroundImage: `linear-gradient(to right, ${line} 1px, transparent 1px), linear-gradient(to bottom, ${line} 1px, transparent 1px)`,
+        backgroundSize: "24px 24px",
+      };
+    }
+    if (pattern === "dots") {
+      return {
+        backgroundImage: `radial-gradient(${dot} 1px, transparent 1.2px)`,
+        backgroundSize: "16px 16px",
+      };
+    }
+    return {
+      backgroundImage: `repeating-linear-gradient(135deg, ${line} 0 1px, transparent 1px 12px)`,
+    };
+  })();
 
   return (
     <article
       className="relative rounded-md p-6 overflow-hidden group flex flex-col min-h-[420px] transition-all duration-300 hover:-translate-y-0.5"
       style={{
-        background: toneConfig.bg,
-        border: `1px solid ${toneConfig.border}`,
+        background:
+          "linear-gradient(180deg, color-mix(in oklab, var(--color-background) 92%, black) 0%, color-mix(in oklab, var(--color-background) 96%, black) 100%)",
+        border: "1px solid var(--color-hairline)",
         boxShadow:
           "inset 0 1px 0 color-mix(in oklab, white 4%, transparent), 0 1px 0 color-mix(in oklab, black 40%, transparent)",
       }}
     >
-      {/* Raster grid texture */}
+      {/* Distinct background pattern */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none opacity-[0.18]"
+        className="absolute inset-0 pointer-events-none opacity-[0.22]"
         style={{
-          backgroundImage:
-            "linear-gradient(to right, color-mix(in oklab, var(--color-foreground) 10%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--color-foreground) 10%, transparent) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
+          ...patternStyle,
           maskImage:
-            "radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 90%)",
+            "radial-gradient(ellipse 85% 75% at 50% 40%, black 30%, transparent 90%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 90%)",
+            "radial-gradient(ellipse 85% 75% at 50% 40%, black 30%, transparent 90%)",
         }}
       />
       {/* Top hairline accent */}
@@ -174,14 +175,8 @@ function Card({
         aria-hidden
         className="absolute inset-x-0 top-0 h-px"
         style={{
-          background: `linear-gradient(90deg, transparent, color-mix(in oklab, ${toneConfig.hue} 70%, transparent), transparent)`,
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute -top-24 -right-16 w-64 h-64 rounded-full pointer-events-none opacity-50 blur-3xl"
-        style={{
-          background: `radial-gradient(circle, color-mix(in oklab, ${toneConfig.hue} 30%, transparent) 0%, transparent 70%)`,
+          background:
+            "linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-foreground) 18%, transparent), transparent)",
         }}
       />
       <div className="relative flex items-start gap-3">
