@@ -3,11 +3,15 @@ import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-r
 import appCss from "../styles.css?url";
 import { CookieBanner } from "@/components/CookieBanner";
 
+const SITE_URL = "https://datax.me";
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#0b1220" },
       { title: "DataX — Structured workflows for governed clinical data requests" },
       {
         name: "description",
@@ -20,17 +24,38 @@ export const Route = createRootRoute({
         content: "Software for hospital data request workflows.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1216" },
+      { property: "og:image:height", content: "640" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "canonical", href: SITE_URL + "/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "DataX",
+          url: SITE_URL,
+          logo: `${SITE_URL}/favicon.png`,
+          description:
+            "DataX helps hospitals handle research and data access requests through a clear, auditable, review-ready workflow.",
+          email: "info@datax.me",
+        }),
       },
     ],
   }),
