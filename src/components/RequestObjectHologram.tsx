@@ -6,13 +6,49 @@ import type { ReactElement } from "react";
  * A calm, product-led "request object" visual for the homepage hero.
  * Four stacked, frosted glass layers showing how a hospital research
  * request is transformed into a governed, review-ready handoff.
- *
- * Design constraints:
- *  - Clinical, precise, hospital-grade
- *  - Frosted glass + thin grid lines + soft depth
- *  - Muted blue-grey accents, no rainbow / cyberpunk
- *  - Restrained motion (gentle float + subtle status pulse only)
  */
+
+type Lang = "en" | "de";
+
+const COPY = {
+  en: {
+    l4Label: "04 · Handoff",
+    l4Title: "Review-ready dataset",
+    pillDeident: "De-identified",
+    pillSealed: "Audit sealed",
+    l3Label: "03 · Review",
+    l3Title: "Governance workflow",
+    stepDpo: "DPO",
+    stepEthics: "Ethics",
+    stepCustodian: "Custodian",
+    l2Label: "02 · Structured",
+    l2Title: "Cohort criteria",
+    chipAge: "Age ≥ 65",
+    l1Label: "01 · Request",
+    l1Title: "Plain-language question",
+    l1Body:
+      '"Patients with heart failure over 65, reduced ejection fraction, admitted in the last 24 months."',
+  },
+  de: {
+    l4Label: "04 · Übergabe",
+    l4Title: "Prüfungsbereiter Datensatz",
+    pillDeident: "Pseudonymisiert",
+    pillSealed: "Audit versiegelt",
+    l3Label: "03 · Prüfung",
+    l3Title: "Governance-Workflow",
+    stepDpo: "DSB",
+    stepEthics: "Ethik",
+    stepCustodian: "Datentreuhand",
+    l2Label: "02 · Strukturiert",
+    l2Title: "Kohortenkriterien",
+    chipAge: "Alter ≥ 65",
+    l1Label: "01 · Anfrage",
+    l1Title: "Frage in natürlicher Sprache",
+    l1Body:
+      '„Patient:innen mit Herzinsuffizienz über 65, reduzierter Ejektionsfraktion, in den letzten 24 Monaten aufgenommen."',
+  },
+} as const;
+
 function Connector({ index, delay }: { index: number; delay: string }) {
   const top = (index + 1) * 78 - 18;
   const z = -(index * 60 + 30);
@@ -47,14 +83,14 @@ function Connector({ index, delay }: { index: number; delay: string }) {
   );
 }
 
-export function RequestObjectHologram(): ReactElement {
+export function RequestObjectHologram({ lang = "en" }: { lang?: Lang } = {}): ReactElement {
+  const t = COPY[lang];
   return (
     <div
       aria-hidden
       className="relative w-full h-full min-h-[480px] flex items-center justify-center select-none"
       style={{ perspective: "1800px" }}
     >
-      {/* Soft ambient halo — very restrained */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -62,8 +98,6 @@ export function RequestObjectHologram(): ReactElement {
             "radial-gradient(55% 50% at 60% 45%, color-mix(in oklab, var(--color-brand) 10%, transparent) 0%, transparent 70%)",
         }}
       />
-
-      {/* Faint baseline grid — clinical reference */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.18]"
         style={{
@@ -77,7 +111,6 @@ export function RequestObjectHologram(): ReactElement {
         }}
       />
 
-      {/* Stack — gently floating */}
       <div
         className="relative w-[400px] max-w-full ml-auto translate-x-[150px] -translate-y-[70px]"
         style={{
@@ -86,21 +119,14 @@ export function RequestObjectHologram(): ReactElement {
           animation: "ROH-float 9s ease-in-out infinite",
         }}
       >
-        {/* Connectors between layers — subtle vertical flow with traveling pulse */}
         <Connector index={0} delay="0s" />
         <Connector index={1} delay="1.1s" />
         <Connector index={2} delay="2.2s" />
 
-        {/* Layer 4 — Review-ready handoff (deepest) */}
-        <Layer
-          index={3}
-          label="04 · Handoff"
-          title="Review-ready dataset"
-          accent="ready"
-        >
+        <Layer index={3} label={t.l4Label} title={t.l4Title} accent="ready">
           <div className="flex items-center gap-2">
-            <Pill>De-identified</Pill>
-            <Pill>Audit sealed</Pill>
+            <Pill>{t.pillDeident}</Pill>
+            <Pill>{t.pillSealed}</Pill>
           </div>
           <div className="mt-2.5 flex items-center justify-between">
             <span className="text-[10px] tracking-wide text-foreground/60">
@@ -110,55 +136,33 @@ export function RequestObjectHologram(): ReactElement {
           </div>
         </Layer>
 
-        {/* Layer 3 — Review workflow / approvals */}
-        <Layer
-          index={2}
-          label="03 · Review"
-          title="Governance workflow"
-          accent="review"
-        >
+        <Layer index={2} label={t.l3Label} title={t.l3Title} accent="review">
           <div className="grid grid-cols-3 gap-1.5">
-            <Step label="DPO" state="done" />
-            <Step label="Ethics" state="done" />
-            <Step label="Custodian" state="active" />
+            <Step label={t.stepDpo} state="done" />
+            <Step label={t.stepEthics} state="done" />
+            <Step label={t.stepCustodian} state="active" />
           </div>
         </Layer>
 
-        {/* Layer 2 — Structured criteria */}
-        <Layer
-          index={1}
-          label="02 · Structured"
-          title="Cohort criteria"
-          accent="info"
-        >
+        <Layer index={1} label={t.l2Label} title={t.l2Title} accent="info">
           <div className="flex flex-wrap gap-1.5">
             <Chip>ICD-10 · I50.*</Chip>
-            <Chip>Age ≥ 65</Chip>
+            <Chip>{t.chipAge}</Chip>
             <Chip>LVEF &lt; 40%</Chip>
           </div>
           <div className="mt-2.5 flex items-center justify-between">
             <Window />
             <span className="text-[10px] tabular-nums text-foreground/55">
-              n ≈ 1,284
+              n ≈ 1.284
             </span>
           </div>
         </Layer>
 
-        {/* Layer 1 — Unstructured request (top) */}
-        <Layer
-          index={0}
-          label="01 · Request"
-          title="Plain-language question"
-          accent="muted"
-        >
-          <p className="text-[11px] leading-snug text-foreground/70">
-            "Patients with heart failure over 65, reduced ejection fraction,
-            admitted in the last 24 months."
-          </p>
+        <Layer index={0} label={t.l1Label} title={t.l1Title} accent="muted">
+          <p className="text-[11px] leading-snug text-foreground/70">{t.l1Body}</p>
         </Layer>
       </div>
 
-      {/* Local keyframes — restrained */}
       <style>{`
         @keyframes ROH-float {
           0%, 100% { transform: rotateX(22deg) rotateY(-14deg) translateY(0px); }
@@ -196,7 +200,6 @@ function Layer({
   accent: Accent;
   children: React.ReactNode;
 }) {
-  // Stack offsets — deeper layers sit lower & further back
   const offsetY = index * 78;
   const z = -index * 60;
   const accentColor =
@@ -225,7 +228,6 @@ function Layer({
         ].join(", "),
       }}
     >
-      {/* Top hairline accent */}
       <div
         className="absolute inset-x-0 top-0 h-px"
         style={{
@@ -234,7 +236,6 @@ function Layer({
       />
 
       <div className="px-4 pt-3 pb-3.5">
-        {/* Header row */}
         <div className="flex items-center justify-between mb-2">
           <span
             className="text-[9.5px] tracking-[0.14em] uppercase font-mono"
@@ -345,4 +346,3 @@ function Window() {
     </div>
   );
 }
-
