@@ -79,7 +79,7 @@ export function RequestObjectHologram(): ReactElement {
 
       {/* Stack — gently floating */}
       <div
-        className="relative w-[400px] max-w-full ml-auto translate-x-[120px]"
+        className="relative w-[400px] max-w-full ml-auto translate-x-[120px] -translate-y-[50px]"
         style={{
           transformStyle: "preserve-3d",
           transform: "rotateX(22deg) rotateY(-14deg) rotateZ(0deg)",
