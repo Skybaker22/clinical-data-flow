@@ -69,19 +69,19 @@ function Home() {
             <Card
               eyebrow="01 — Discovery Agent"
               title="Plain-language clinical questions, structured into discovery runs."
-              tone="brand"
+              tone="teal"
               visual={<AgentMock />}
             />
             <Card
               eyebrow="02 — Discovery Workspace"
               title="Variants, feasibility and attrition in one canvas."
-              tone="surface"
+              tone="blue"
               visual={<WorkspaceMock />}
             />
             <Card
               eyebrow="03 — Value"
               title="Higher-quality requests. Less back-and-forth."
-              tone="surface"
+              tone="amber"
               visual={<ValueMock />}
             />
           </div>
