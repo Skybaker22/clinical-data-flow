@@ -61,11 +61,6 @@ function Home() {
               >
                 Request Demo
               </a>
-              <div className="flex items-center gap-8 text-sm">
-                <Stat value="2" label="core agents" />
-                <Stat value="3" label="reasoning layers" />
-                <Stat value="100%" label="traceable" />
-              </div>
             </div>
           </div>
 
@@ -115,15 +110,6 @@ function Home() {
       </main>
 
       <SiteFooter />
-    </div>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="flex items-baseline gap-2">
-      <span className="font-display text-foreground text-lg">{value}</span>
-      <span className="text-muted-foreground text-xs uppercase tracking-wider">{label}</span>
     </div>
   );
 }
