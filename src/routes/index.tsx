@@ -23,7 +23,12 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: "https://datax.me/og-image.jpg" },
       { name: "twitter:image", content: "https://datax.me/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://datax.me/" }],
+    links: [
+      { rel: "canonical", href: "https://datax.me/" },
+      { rel: "alternate", hrefLang: "en", href: "https://datax.me/" },
+      { rel: "alternate", hrefLang: "de", href: "https://datax.me/de" },
+      { rel: "alternate", hrefLang: "x-default", href: "https://datax.me/" },
+    ],
   }),
   component: Home,
 });
