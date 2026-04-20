@@ -62,12 +62,20 @@ function Home() {
                 records, and prepare privacy-preserving data for clinical
                 research — without patient data leaving the hospital.
               </p>
-              <div className="mt-7 flex flex-wrap items-center gap-6">
+              <div className="mt-7 flex flex-wrap items-center gap-3">
                 <a
                   href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
                   className="btn-brand"
                 >
                   Request Demo
+                </a>
+                <a
+                  href="https://calendly.com/info-datax/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
+                >
+                  Talk to founders
                 </a>
               </div>
             </div>
