@@ -4,39 +4,39 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { AgentMock, WorkspaceMock, ValueMock } from "@/components/ProductMocks";
 import { RequestObjectHologram } from "@/components/RequestObjectHologram";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/de")({
   head: () => ({
     meta: [
-      { title: "DataX — Data Discovery Agents for Clinical Requests" },
+      { title: "DataX — Data Discovery Agents für klinische Anfragen" },
       {
         name: "description",
         content:
-          "DataX is the agentic discovery workspace for hospital research teams. Describe a cohort in plain language — the Discovery Agent assesses feasibility on connected clinical data.",
+          "DataX ist der agentische Discovery-Workspace für Forschungsteams in Krankenhäusern. Beschreiben Sie eine Kohorte in natürlicher Sprache — der Discovery-Agent prüft die Machbarkeit auf angebundenen klinischen Daten.",
       },
-      { property: "og:title", content: "DataX — Data Discovery Agents for Clinical Requests" },
+      { property: "og:title", content: "DataX — Data Discovery Agents für klinische Anfragen" },
       {
         property: "og:description",
         content:
-          "Plain-language cohort discovery for university hospitals, medical informatics institutes and Data Integration Centres.",
+          "Kohortensuche in natürlicher Sprache für Universitätskliniken, Institute für Medizinische Informatik und Datenintegrationszentren.",
       },
-      { property: "og:url", content: "https://datax.me/" },
+      { property: "og:url", content: "https://datax.me/de" },
+      { property: "og:locale", content: "de_DE" },
       { property: "og:image", content: "https://datax.me/og-image.jpg" },
       { name: "twitter:image", content: "https://datax.me/og-image.jpg" },
     ],
     links: [
-      { rel: "canonical", href: "https://datax.me/" },
+      { rel: "canonical", href: "https://datax.me/de" },
       { rel: "alternate", hrefLang: "en", href: "https://datax.me/" },
       { rel: "alternate", hrefLang: "de", href: "https://datax.me/de" },
       { rel: "alternate", hrefLang: "x-default", href: "https://datax.me/" },
     ],
   }),
-  component: Home,
+  component: HomeDe,
 });
 
-function Home() {
+function HomeDe() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground relative overflow-hidden">
-      {/* Subtle ambient glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-40 h-[520px] opacity-60"
@@ -48,26 +48,26 @@ function Home() {
 
       <SiteHeader />
 
-      {/* Hero — sized to fit above the fold */}
       <main className="flex-1 relative">
         <section className="container-x pt-12 md:pt-16 pb-10 relative">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             <div className="lg:col-span-7 relative">
               <h1 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
-                Search for clinical evidence.<br />
-                <span className="text-muted-foreground">Let the agent do the discovery.</span>
+                Suchen Sie nach klinischer Evidenz.<br />
+                <span className="text-muted-foreground">Lassen Sie den Agenten die Discovery übernehmen.</span>
               </h1>
               <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                DataX helps hospitals find the right patients, pull the right
-                records, and prepare privacy-preserving data for clinical
-                research — without patient data leaving the hospital.
+                DataX hilft Krankenhäusern, die richtigen Patient:innen zu finden,
+                die richtigen Daten zusammenzustellen und datenschutzkonforme
+                Auswertungen für die klinische Forschung vorzubereiten — ohne dass
+                Patientendaten das Krankenhaus verlassen.
               </p>
               <div className="mt-7 flex flex-wrap items-center gap-6">
                 <a
-                  href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
+                  href="mailto:info@datax.me?subject=Demo-Anfrage%20%E2%80%94%20DataX"
                   className="btn-brand"
                 >
-                  Request Demo
+                  Demo anfragen
                 </a>
               </div>
             </div>
@@ -76,37 +76,35 @@ function Home() {
             </div>
           </div>
 
-          {/* Product cards — three across */}
           <div className="mt-20 md:mt-28 grid md:grid-cols-3 gap-4">
             <Card
-              eyebrow="01 — Discovery Agent"
-              title="Plain-language clinical questions, structured into discovery runs."
+              eyebrow="01 — Discovery-Agent"
+              title="Klinische Fragen in natürlicher Sprache, strukturiert in Discovery-Läufe."
               pattern="grid"
               visual={<AgentMock />}
             />
             <Card
-              eyebrow="02 — Discovery Workspace"
-              title="Variants, feasibility and attrition in one canvas."
+              eyebrow="02 — Discovery-Workspace"
+              title="Varianten, Machbarkeit und Attrition auf einer Oberfläche."
               pattern="dots"
               visual={<WorkspaceMock />}
             />
             <Card
-              eyebrow="03 — Value"
-              title="Higher-quality requests. Less back-and-forth."
+              eyebrow="03 — Mehrwert"
+              title="Bessere Anfragen. Weniger Rückfragen."
               pattern="diagonal"
               visual={<ValueMock />}
             />
           </div>
 
-          {/* Trust strip */}
           <div className="mt-12 pt-8 border-t hairline">
-            <p className="label-eyebrow mb-4">Built for</p>
+            <p className="label-eyebrow mb-4">Entwickelt für</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-3">
               {[
-                "University hospitals",
-                "Medical informatics institutes",
-                "Data Integration Centres",
-                "Hospital data offices",
+                "Universitätskliniken",
+                "Institute für Medizinische Informatik",
+                "Datenintegrationszentren",
+                "Datenstellen in Krankenhäusern",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
                   <span
@@ -170,7 +168,6 @@ function Card({
           "inset 0 1px 0 color-mix(in oklab, white 4%, transparent), 0 1px 0 color-mix(in oklab, black 40%, transparent)",
       }}
     >
-      {/* Distinct background pattern */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none opacity-[0.55]"
@@ -182,7 +179,6 @@ function Card({
             "radial-gradient(ellipse 85% 75% at 50% 40%, black 30%, transparent 90%)",
         }}
       />
-      {/* Top hairline accent */}
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-px"
