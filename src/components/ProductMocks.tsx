@@ -120,7 +120,7 @@ const WORKSPACE_COPY = {
     ],
   },
   de: {
-    title: "Discovery-Workspace",
+    title: "Recherche-Workspace",
     query: "Patient:innen ≥65 · T2DM · HbA1c >7,0",
     rerun: "▶ Neu starten",
     variants: [
