@@ -6,7 +6,11 @@ export const Route = createFileRoute("/datenschutz")({
     meta: [
       { title: "Datenschutz — DataX" },
       { name: "description", content: "Datenschutzerklärung der DataX UG (haftungsbeschränkt)." },
+      { property: "og:title", content: "Datenschutz — DataX" },
+      { property: "og:description", content: "Datenschutzerklärung der DataX UG (haftungsbeschränkt)." },
+      { property: "og:url", content: "https://datax.me/datenschutz" },
     ],
+    links: [{ rel: "canonical", href: "https://datax.me/datenschutz" }],
   }),
   component: Datenschutz,
 });

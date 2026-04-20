@@ -19,7 +19,11 @@ export const Route = createFileRoute("/")({
         content:
           "Plain-language cohort discovery for university hospitals, medical informatics institutes and Data Integration Centres.",
       },
+      { property: "og:url", content: "https://datax.me/" },
+      { property: "og:image", content: "https://datax.me/og-image.jpg" },
+      { name: "twitter:image", content: "https://datax.me/og-image.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://datax.me/" }],
   }),
   component: Home,
 });

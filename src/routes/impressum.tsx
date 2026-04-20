@@ -6,7 +6,11 @@ export const Route = createFileRoute("/impressum")({
     meta: [
       { title: "Impressum — DataX" },
       { name: "description", content: "Impressum / Anbieterkennzeichnung der DataX UG (haftungsbeschränkt)." },
+      { property: "og:title", content: "Impressum — DataX" },
+      { property: "og:description", content: "Impressum / Anbieterkennzeichnung der DataX UG (haftungsbeschränkt)." },
+      { property: "og:url", content: "https://datax.me/impressum" },
     ],
+    links: [{ rel: "canonical", href: "https://datax.me/impressum" }],
   }),
   component: Impressum,
 });
