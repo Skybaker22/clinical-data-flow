@@ -1,7 +1,9 @@
-import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { CookieBanner } from "@/components/CookieBanner";
+
+const GERMAN_ROUTES = ["/agb", "/datenschutz", "/impressum", "/cookie-hinweise"];
 
 const SITE_URL = "https://datax.me";
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
