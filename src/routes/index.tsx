@@ -124,16 +124,33 @@ function Card({
   eyebrow: string;
   title: string;
   body?: string;
-  tone: "brand" | "surface";
+  tone: "teal" | "blue" | "amber";
   visual?: React.ReactNode;
 }) {
+  const toneConfig = {
+    teal: {
+      hue: "var(--color-brand)",
+      bg: "linear-gradient(160deg, color-mix(in oklab, var(--color-brand) 14%, var(--color-background)) 0%, color-mix(in oklab, var(--color-brand) 4%, var(--color-background)) 60%, var(--color-background) 100%)",
+      border: "color-mix(in oklab, var(--color-brand) 30%, var(--color-hairline))",
+    },
+    blue: {
+      hue: "var(--color-status-active)",
+      bg: "linear-gradient(160deg, color-mix(in oklab, var(--color-status-active) 16%, var(--color-background)) 0%, color-mix(in oklab, var(--color-status-active) 5%, var(--color-background)) 60%, var(--color-background) 100%)",
+      border: "color-mix(in oklab, var(--color-status-active) 32%, var(--color-hairline))",
+    },
+    amber: {
+      hue: "var(--color-status-pending)",
+      bg: "linear-gradient(160deg, color-mix(in oklab, var(--color-status-pending) 14%, var(--color-background)) 0%, color-mix(in oklab, var(--color-status-pending) 4%, var(--color-background)) 60%, var(--color-background) 100%)",
+      border: "color-mix(in oklab, var(--color-status-pending) 28%, var(--color-hairline))",
+    },
+  }[tone];
+
   return (
     <article
       className="relative rounded-md p-6 overflow-hidden group flex flex-col min-h-[420px] transition-all duration-300 hover:-translate-y-0.5"
       style={{
-        background:
-          "linear-gradient(180deg, color-mix(in oklab, var(--color-background) 92%, black) 0%, color-mix(in oklab, var(--color-background) 96%, black) 100%)",
-        border: "1px solid var(--color-hairline)",
+        background: toneConfig.bg,
+        border: `1px solid ${toneConfig.border}`,
         boxShadow:
           "inset 0 1px 0 color-mix(in oklab, white 4%, transparent), 0 1px 0 color-mix(in oklab, black 40%, transparent)",
       }}
@@ -157,22 +174,16 @@ function Card({
         aria-hidden
         className="absolute inset-x-0 top-0 h-px"
         style={{
-          background:
-            tone === "brand"
-              ? "linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-brand) 70%, transparent), transparent)"
-              : "linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-foreground) 18%, transparent), transparent)",
+          background: `linear-gradient(90deg, transparent, color-mix(in oklab, ${toneConfig.hue} 70%, transparent), transparent)`,
         }}
       />
-      {tone === "brand" && (
-        <div
-          aria-hidden
-          className="absolute -top-24 -right-16 w-64 h-64 rounded-full pointer-events-none opacity-50 blur-3xl"
-          style={{
-            background:
-              "radial-gradient(circle, color-mix(in oklab, var(--color-brand) 30%, transparent) 0%, transparent 70%)",
-          }}
-        />
-      )}
+      <div
+        aria-hidden
+        className="absolute -top-24 -right-16 w-64 h-64 rounded-full pointer-events-none opacity-50 blur-3xl"
+        style={{
+          background: `radial-gradient(circle, color-mix(in oklab, ${toneConfig.hue} 30%, transparent) 0%, transparent 70%)`,
+        }}
+      />
       <div className="relative flex items-start gap-3">
         <p className="label-eyebrow">{eyebrow}</p>
       </div>
