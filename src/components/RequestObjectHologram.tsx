@@ -52,6 +52,11 @@ export function RequestObjectHologram(): ReactElement {
           animation: "ROH-float 9s ease-in-out infinite",
         }}
       >
+        {/* Connectors between layers — subtle vertical flow with traveling pulse */}
+        <Connector index={0} delay="0s" />
+        <Connector index={1} delay="1.1s" />
+        <Connector index={2} delay="2.2s" />
+
         {/* Layer 4 — Review-ready handoff (deepest) */}
         <Layer
           index={3}
