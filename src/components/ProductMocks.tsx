@@ -10,7 +10,7 @@
 /* -------------------------------------------------------------------------- */
 export function AgentMock() {
   return (
-    <div className="rounded-md border hairline bg-background/80 p-4 text-[11px] font-sans select-none shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)]">
+    <div className="w-full rounded-md border hairline bg-background/80 p-4 text-[11px] font-sans select-none shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)] flex flex-col min-h-[260px]">
       {/* Centered prompt area */}
       <div className="text-center mb-3">
         <div
@@ -88,7 +88,7 @@ export function WorkspaceMock() {
   ];
 
   return (
-    <div className="rounded-md border hairline bg-background/80 p-4 text-[11px] font-sans select-none shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)] relative overflow-hidden">
+    <div className="w-full rounded-md border hairline bg-background/80 p-4 text-[11px] font-sans select-none shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)] relative overflow-hidden flex flex-col min-h-[260px]">
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-10 pointer-events-none"
@@ -188,7 +188,7 @@ export function ValueMock() {
     { label: "HbA1c > 7.0", w: 14, n: "168", delay: "1.3s", drop: "−63%" },
   ];
   return (
-    <div className="rounded-md border hairline bg-background/80 p-4 text-[11px] font-sans select-none shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)]">
+    <div className="w-full rounded-md border hairline bg-background/80 p-4 text-[11px] font-sans select-none shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)] flex flex-col min-h-[260px]">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <span style={{ color: "var(--color-brand)" }}>⏷</span>
