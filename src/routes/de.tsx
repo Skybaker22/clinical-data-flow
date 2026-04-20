@@ -7,13 +7,13 @@ import { RequestObjectHologram } from "@/components/RequestObjectHologram";
 export const Route = createFileRoute("/de")({
   head: () => ({
     meta: [
-      { title: "DataX — Data Discovery Agents für klinische Anfragen" },
+      { title: "DataX — Recherche-Agenten für klinische Anfragen" },
       {
         name: "description",
         content:
-          "DataX ist der agentische Discovery-Workspace für Forschungsteams in Krankenhäusern. Beschreiben Sie eine Kohorte in natürlicher Sprache — der Discovery-Agent prüft die Machbarkeit auf angebundenen klinischen Daten.",
+          "DataX ist der agentische Recherche-Workspace für Forschungsteams in Krankenhäusern. Beschreiben Sie eine Kohorte in natürlicher Sprache — der Recherche-Agent prüft die Machbarkeit auf angebundenen klinischen Daten.",
       },
-      { property: "og:title", content: "DataX — Data Discovery Agents für klinische Anfragen" },
+      { property: "og:title", content: "DataX — Recherche-Agenten für klinische Anfragen" },
       {
         property: "og:description",
         content:
@@ -54,7 +54,7 @@ function HomeDe() {
             <div className="lg:col-span-7 relative">
               <h1 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
                 Suchen Sie nach klinischer Evidenz.<br />
-                <span className="text-muted-foreground">Lassen Sie den Agenten die Discovery übernehmen.</span>
+                <span className="text-muted-foreground">Lassen Sie den Agenten die Recherche übernehmen.</span>
               </h1>
               <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
                 DataX hilft Krankenhäusern, die richtigen Patient:innen zu finden,
@@ -86,13 +86,13 @@ function HomeDe() {
 
           <div className="mt-20 md:mt-28 grid md:grid-cols-3 gap-4">
             <Card
-              eyebrow="01 — Discovery-Agent"
-              title="Klinische Fragen in natürlicher Sprache, strukturiert in Discovery-Läufe."
+              eyebrow="01 — Recherche-Agent"
+              title="Klinische Fragen in natürlicher Sprache, strukturiert in Recherche-Läufe."
               pattern="grid"
               visual={<AgentMock lang="de" />}
             />
             <Card
-              eyebrow="02 — Discovery-Workspace"
+              eyebrow="02 — Recherche-Workspace"
               title="Varianten, Machbarkeit und Attrition auf einer Oberfläche."
               pattern="dots"
               visual={<WorkspaceMock lang="de" />}
