@@ -19,7 +19,7 @@ function Impressum() {
   return (
     <LegalPage eyebrow="Legal" title="Impressum.">
       <Section heading="Angaben gemäß §§ 5, 6 DDG">
-        <p>DataX UG (haftungsbeschränkt) i.G.</p>
+        <p>DataX UG (haftungsbeschränkt)</p>
         <p>Lindenstraße 22</p>
         <p>60325 Frankfurt am Main</p>
         <p>Deutschland</p>
