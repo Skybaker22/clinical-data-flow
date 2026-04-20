@@ -50,9 +50,9 @@ function Home() {
               <span className="text-muted-foreground">Let the agent do the discovery.</span>
             </h1>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DataX is a founder-led research company building the future of secure
-              health data collaboration — agentic systems for clinical discovery,
-              built with hospitals.
+              DataX helps hospitals answer clinical research questions by finding
+              matching patients, extracting relevant records, and creating
+              de-identified datasets — all inside the hospital's own infrastructure.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-6">
               <a
