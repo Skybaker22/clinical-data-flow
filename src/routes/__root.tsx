@@ -87,9 +87,11 @@ function NotFound() {
 }
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const lang = GERMAN_ROUTES.some((p) => pathname === p || pathname.startsWith(p + "/")) ? "de" : "en";
   const themeScript = `(function(){try{var t=localStorage.getItem('datax-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('dark');}})();`;
   return (
-    <html lang="en" className="dark">
+    <html lang={lang} className="dark" suppressHydrationWarning>
       <head>
         <HeadContent />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
