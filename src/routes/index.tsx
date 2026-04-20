@@ -42,25 +42,28 @@ function Home() {
       {/* Hero — sized to fit above the fold */}
       <main className="flex-1 relative">
         <section className="container-x pt-12 md:pt-16 pb-10 relative">
-          {/* Digital patient hologram — decorative background */}
-          <PatientHologram />
-          <div className="max-w-3xl relative">
-            <h1 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
-              Search for clinical evidence.<br />
-              <span className="text-muted-foreground">Let the agent do the discovery.</span>
-            </h1>
-            <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DataX helps hospitals find the right patients, pull the right
-              records, and prepare privacy-preserving data for clinical
-              research — without patient data leaving the hospital.
-            </p>
-            <div className="mt-7 flex flex-wrap items-center gap-6">
-              <a
-                href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
-                className="btn-brand"
-              >
-                Request Demo
-              </a>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            <div className="lg:col-span-7 relative">
+              <h1 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
+                Search for clinical evidence.<br />
+                <span className="text-muted-foreground">Let the agent do the discovery.</span>
+              </h1>
+              <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                DataX helps hospitals find the right patients, pull the right
+                records, and prepare privacy-preserving data for clinical
+                research — without patient data leaving the hospital.
+              </p>
+              <div className="mt-7 flex flex-wrap items-center gap-6">
+                <a
+                  href="mailto:info@datax.me?subject=Demo%20request%20%E2%80%94%20DataX"
+                  className="btn-brand"
+                >
+                  Request Demo
+                </a>
+              </div>
+            </div>
+            <div className="lg:col-span-5 relative h-[520px] hidden lg:block">
+              <RequestObjectHologram />
             </div>
           </div>
 
