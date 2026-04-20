@@ -128,8 +128,8 @@ function Card({
   visual?: React.ReactNode;
 }) {
   const patternStyle: React.CSSProperties = (() => {
-    const line = "color-mix(in oklab, var(--color-foreground) 12%, transparent)";
-    const dot = "color-mix(in oklab, var(--color-foreground) 16%, transparent)";
+    const line = "color-mix(in oklab, var(--color-foreground) 22%, transparent)";
+    const dot = "color-mix(in oklab, var(--color-foreground) 30%, transparent)";
     if (pattern === "grid") {
       return {
         backgroundImage: `linear-gradient(to right, ${line} 1px, transparent 1px), linear-gradient(to bottom, ${line} 1px, transparent 1px)`,
@@ -138,12 +138,12 @@ function Card({
     }
     if (pattern === "dots") {
       return {
-        backgroundImage: `radial-gradient(${dot} 1px, transparent 1.2px)`,
-        backgroundSize: "16px 16px",
+        backgroundImage: `radial-gradient(${dot} 1.4px, transparent 1.6px)`,
+        backgroundSize: "14px 14px",
       };
     }
     return {
-      backgroundImage: `repeating-linear-gradient(135deg, ${line} 0 1px, transparent 1px 12px)`,
+      backgroundImage: `repeating-linear-gradient(135deg, ${line} 0 1.5px, transparent 1.5px 12px)`,
     };
   })();
 
@@ -161,7 +161,7 @@ function Card({
       {/* Distinct background pattern */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none opacity-[0.22]"
+        className="absolute inset-0 pointer-events-none opacity-[0.55]"
         style={{
           ...patternStyle,
           maskImage:
