@@ -86,13 +86,13 @@ function HomeDe() {
 
           <div className="mt-20 md:mt-28 grid md:grid-cols-3 gap-4">
             <Card
-              eyebrow="01 — Recherche-Agent"
-              title="Klinische Fragen in natürlicher Sprache, strukturiert in Recherche-Läufe."
+              eyebrow="01 — Discovery Agent"
+              title="Klinische Fragen in natürlicher Sprache, strukturiert in Discovery-Läufe."
               pattern="grid"
               visual={<AgentMock lang="de" />}
             />
             <Card
-              eyebrow="02 — Recherche-Workspace"
+              eyebrow="02 — Discovery Workspace"
               title="Varianten, Machbarkeit und Attrition auf einer Oberfläche."
               pattern="dots"
               visual={<WorkspaceMock lang="de" />}
