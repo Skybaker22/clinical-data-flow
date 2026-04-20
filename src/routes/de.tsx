@@ -99,7 +99,7 @@ function HomeDe() {
             />
             <Card
               eyebrow="03 — Mehrwert"
-              title="Bessere Anfragen. Weniger Rückfragen."
+              title="Hochwertigere Anfragen. Weniger Rückfragen."
               pattern="diagonal"
               visual={<ValueMock lang="de" />}
             />
