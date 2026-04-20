@@ -134,6 +134,12 @@ export function RequestObjectHologram(): ReactElement {
           0%, 100% { opacity: 1; transform: scale(1); }
           50%      { opacity: 0.55; transform: scale(0.85); }
         }
+        @keyframes ROH-flow {
+          0%   { transform: translateY(-100%); opacity: 0; }
+          15%  { opacity: 1; }
+          85%  { opacity: 1; }
+          100% { transform: translateY(100%); opacity: 0; }
+        }
       `}</style>
     </div>
   );
