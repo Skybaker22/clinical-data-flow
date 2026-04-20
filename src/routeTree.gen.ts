@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as DeRouteImport } from './routes/de'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as CookieHinweiseRouteImport } from './routes/cookie-hinweise'
 import { Route as AgbRouteImport } from './routes/agb'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const ImpressumRoute = ImpressumRouteImport.update({
   id: '/impressum',
   path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeRoute = DeRouteImport.update({
+  id: '/de',
+  path: '/de',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatenschutzRoute = DatenschutzRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/agb': typeof AgbRoute
   '/cookie-hinweise': typeof CookieHinweiseRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/de': typeof DeRoute
   '/impressum': typeof ImpressumRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/agb': typeof AgbRoute
   '/cookie-hinweise': typeof CookieHinweiseRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/de': typeof DeRoute
   '/impressum': typeof ImpressumRoute
 }
 export interface FileRoutesById {
@@ -61,19 +69,27 @@ export interface FileRoutesById {
   '/agb': typeof AgbRoute
   '/cookie-hinweise': typeof CookieHinweiseRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/de': typeof DeRoute
   '/impressum': typeof ImpressumRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/agb' | '/cookie-hinweise' | '/datenschutz' | '/impressum'
+  fullPaths:
+    | '/'
+    | '/agb'
+    | '/cookie-hinweise'
+    | '/datenschutz'
+    | '/de'
+    | '/impressum'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/agb' | '/cookie-hinweise' | '/datenschutz' | '/impressum'
+  to: '/' | '/agb' | '/cookie-hinweise' | '/datenschutz' | '/de' | '/impressum'
   id:
     | '__root__'
     | '/'
     | '/agb'
     | '/cookie-hinweise'
     | '/datenschutz'
+    | '/de'
     | '/impressum'
   fileRoutesById: FileRoutesById
 }
@@ -82,6 +98,7 @@ export interface RootRouteChildren {
   AgbRoute: typeof AgbRoute
   CookieHinweiseRoute: typeof CookieHinweiseRoute
   DatenschutzRoute: typeof DatenschutzRoute
+  DeRoute: typeof DeRoute
   ImpressumRoute: typeof ImpressumRoute
 }
 
@@ -92,6 +109,13 @@ declare module '@tanstack/react-router' {
       path: '/impressum'
       fullPath: '/impressum'
       preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/de': {
+      id: '/de'
+      path: '/de'
+      fullPath: '/de'
+      preLoaderRoute: typeof DeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/datenschutz': {
@@ -130,8 +154,18 @@ const rootRouteChildren: RootRouteChildren = {
   AgbRoute: AgbRoute,
   CookieHinweiseRoute: CookieHinweiseRoute,
   DatenschutzRoute: DatenschutzRoute,
+  DeRoute: DeRoute,
   ImpressumRoute: ImpressumRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
