@@ -13,7 +13,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#0b1220" },
+      { name: "theme-color", content: "#f7f3ec" },
       { title: "DataX — Structured workflows for governed clinical data requests" },
       {
         name: "description",
@@ -89,9 +89,9 @@ function NotFound() {
 function RootShell({ children }: { children: React.ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const lang = GERMAN_ROUTES.some((p) => pathname === p || pathname.startsWith(p + "/")) ? "de" : "en";
-  const themeScript = `(function(){try{var t=localStorage.getItem('datax-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('dark');}})();`;
+  const themeScript = `(function(){try{var t=localStorage.getItem('datax-theme');if(t!=='light'&&t!=='dark'){t='light';}document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('light');}})();`;
   return (
-    <html lang={lang} className="dark" suppressHydrationWarning>
+    <html lang={lang} className="light" suppressHydrationWarning>
       <head>
         <HeadContent />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
